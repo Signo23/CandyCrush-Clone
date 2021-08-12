@@ -1,8 +1,11 @@
-/**
- * 
- */
+
 package candy.common;
 
+/**
+ * 
+ * 2-dimensional point
+ *
+ */
 public class Position {
     
     private double x;
