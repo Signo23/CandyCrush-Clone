@@ -6,13 +6,15 @@ public interface CandyFactory {
 	 * Return normal {@link Candy} of a certain {@link CandyColors}.
 	 * @param cColor The {@link CandyColors} of the {@link Candy}.
 	 * @return The {@link Candy} gained.
+	 * @throws IllegalStateException If COLOR_BOMB color have been passed as parameter.
 	 */
-	Candy getNormalCandy(CandyColors cColor);
+	public Candy getNormalCandy(CandyColors cColor);
 	
 	/**
 	 * Return horizontal striped {@link Candy} of a certain {@link CandyColors}.
 	 * @param cColor The {@link CandyColors} of the {@link Candy}.
 	 * @return The {@link Candy} gained.
+	 * @throws IllegalStateException If COLOR_BOMB color have been passed as parameter.
 	 */
 	Candy getHorizontalStripedCandy(CandyColors cColor);
 
@@ -20,6 +22,7 @@ public interface CandyFactory {
 	 * Return vertical striped {@link Candy} of a certain {@link CandyColors}.
 	 * @param cColor The {@link CandyColors} of the {@link Candy}.
 	 * @return The {@link Candy} gained.
+	 * @throws IllegalStateException If COLOR_BOMB color have been passed as parameter.
 	 */
 	Candy getVerticalStripedCandy(CandyColors cColor);
 
@@ -27,6 +30,7 @@ public interface CandyFactory {
 	 * Return color bomb {@link Candy}.
 	 * @param cColor The {@link CandyColors} of the {@link Candy}.
 	 * @return The {@link Candy} gained.
+	 * @throws IllegalStateException If a color different from COLOR_BOMB have been passed as parameter.
 	 */
 	Candy getColorBomb(CandyColors cColor);
 

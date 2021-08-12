@@ -6,18 +6,18 @@ package model.game.level.grid.candy;
  **/
 
 public enum CandyColors {
-	/**Yellow**/
+	/**Yellow*/
 	YELLOW,
-	/**Orange**/
+	/**Orange*/
 	ORANGE,
-	/**Red**/
+	/**Red*/
 	RED,
-	/**Purple**/
+	/**Purple*/
 	PURPLE,
-	/**Blue**/
+	/**Blue*/
 	BLUE,
-	/**Green**/
+	/**Green*/
 	GREEN,
-	/**Its color is a particular union of all the other colors**/
+	/**Its color is a particular union of all the other colors*/
 	COLOR_BOMB;
 }
