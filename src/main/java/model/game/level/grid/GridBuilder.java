@@ -1,5 +1,9 @@
 package model.game.level.grid;
 
+import java.util.Set;
+
+import model.game.level.grid.candy.CandyColors;
+
 public interface GridBuilder {
 	/**
      * Allows to set the dimensions of the {@link Stage}'s grid.
@@ -39,7 +43,7 @@ public interface GridBuilder {
      * @throws IllegalStateException
      *       If grid has not been set.
      */
-    GridBuilder setEmptyCells(final Set<Point2D> positions);
+    GridBuilder setEmptyCells(final Set<Pair<Integer,Integer>> positions);
     
     /**
      * Allows to set the {@link Stage}'s objective.
@@ -77,7 +81,7 @@ public interface GridBuilder {
      *          or
      *          if at least one position is already mapped to a candy.
      */
-    GridBuilder setCandies(final Map<Point2D, Candy> candies);
+    GridBuilder setCandies(final Map<Pair<Integer,Integer>, Candy> candies);
     
     /**
      * Allows to set a message that needs to be shown at the beginning of this {@link Stage}.

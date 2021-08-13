@@ -16,14 +16,13 @@ import model.game.level.grid.candy.CandyFactory;
 import model.game.level.grid.candy.CandyFactoryImpl;
 
 public class TableBuilderImpl implements TableBuilder {
-	
-	private final Random rnd = new Random ();
-	private final CandyFactory cFactory = new CandyFactoryImpl ();
+
+	private final Random rnd = new Random();
+	private final CandyFactory cFactory = new CandyFactoryImpl();
 	private final Map<Pair<Integer, Integer>, Optional<Candy>> grid = new HashMap<>();
-    private final List<CandyColors> colors = new LinkedList<>();
-    private int rows = 0;
-    private int columns = 0;
-    
+	private final List<CandyColors> colors = new LinkedList<>();
+	private int rows = 0;
+	private int columns = 0;
 
 	@Override
 	public TableBuilder setDimensions(int rows, int columns) {
@@ -33,8 +32,8 @@ public class TableBuilderImpl implements TableBuilder {
 	}
 
 	@Override
-	public TableBuilder setEmptyCells(Set<Pair<Integer,Integer>> positions) {
-		for(Pair<Integer,Integer> p : positions) {
+	public TableBuilder setEmptyCells(Set<Pair<Integer, Integer>> positions) {
+		for (Pair<Integer, Integer> p : positions) {
 			this.grid.put(p, Optional.of(cFactory.getEmpty()));
 		}
 		return this;
@@ -50,9 +49,10 @@ public class TableBuilderImpl implements TableBuilder {
 	public TableBuilder setCandies() {
 		for (int i = 0; i < this.rows; i++) {
 			for (int j = 0; j < this.columns; j++) {
-				Pair<Integer,Integer> p = new Pair<> (i,j);
-				if ((this.grid.get(p)).getCandyType() != CandyTypes.EMPTY) {
-					this.grid.put(p, Optional.of(this.getRandomNormalCandy(colors)));
+				Pair<Integer, Integer> p = new Pair<>(i, j);
+				Optional<Candy> candy = this.grid.get(p);
+				if (candy.equals(Optional.empty()) || candy.get().getCandyType() != Optional.of(CandyTypes.EMPTY)) {
+						this.grid.put(p, Optional.of(this.getRandomNormalCandy(colors)));
 				}
 			}
 		}
@@ -64,14 +64,10 @@ public class TableBuilderImpl implements TableBuilder {
 		// TODO Auto-generated method stub
 		return this;
 	}
-	
+
 	@Override
-	public Candy getRandomNormalCandy (final List<CandyColors> colors) {
+	public Candy getRandomNormalCandy(final List<CandyColors> colors) {
 		return cFactory.getNormalCandy(colors.get(rnd.nextInt(colors.size())));
 	}
-
-	
-
-	
 
 }
