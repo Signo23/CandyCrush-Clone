@@ -5,27 +5,28 @@ package model.game.level.table;
  *
  */
 
-import java.awt.geom.Point2D;
+
 import java.util.Map;
 
 import model.game.level.grid.candy.Candy;
+import other.Pair;
 
 public enum Tables {
 	
-	TABLE_1(, LevelTypes.MOVES),
+	//TABLE_1(, LevelTypes.MOVES),
 	
-	TABLE_2,
+	TABLE_2(),
 	
-	TABLE_3,
+	TABLE_3(),
 	
-	TABLE_4,
+	TABLE_4(),
 	
-	TABLE_5;
+	TABLE_5();
 	
-	public Map<Point2D, Candy> candies;
+	public Map<Pair, Candy> candies;
 	public LevelTypes type;
 	
-	private Tables (Map<Point2D, Candy> c, LevelTypes t) {
+	private Tables (Map<Pair, Candy> c, LevelTypes t) {
 		this.candies = c;
 		this.type = t;
 	}

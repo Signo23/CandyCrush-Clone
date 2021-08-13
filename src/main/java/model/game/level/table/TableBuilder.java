@@ -1,11 +1,10 @@
 package model.game.level.table;
 
-import java.awt.geom.Point2D;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import other.Pair;
+import model.game.level.grid.GridImpl;
 import model.game.level.grid.candy.Candy;
 import model.game.level.grid.candy.CandyColors;
 
@@ -35,7 +34,7 @@ public interface TableBuilder {
      * @return
      *       This instance of {@link TableBuilder}.
      */
-	TableBuilder setEmptyCells(Set<Pair<Integer,Integer>> positions);
+	TableBuilder setEmptyCells(Set<Pair> positions);
 	
 	/**
      * Allows to choose the candy color in the table.
@@ -51,18 +50,32 @@ public interface TableBuilder {
      * Fill the table with random candies.
      * 
      * @param colors 
+     *  The list of all available colors.
      * @return
      *       This instance of {@link TableBuilder}.
      */
 	TableBuilder setCandies(List<CandyColors> colors);
 	
-	TableBuilder build(); 
+	 /**
+     * Build the table.
+     * 
+     * @return
+     *          An object implementing the {@link Grid} interface.
+     *          
+     * @throws IllegalStateException
+     *          If trying to build the same {@link Table} twice,
+     *          if no dimension is set,
+     *          if no empty candy is set, even if there are no empty candy to set.
+     *          if no available color is set.
+     *          if the grid is not full.
+     */
+	GridImpl build(); 
 	
 	/**
-     * Generate a candy rhi
+     * Generate a random normal candy.
      * 
      * @param colors
-     * 
+     *       The list of all available colors.
      * @return
      *       This instance of {@link TableBuilder}.
      */
