@@ -11,7 +11,7 @@ import java.util.Map;
 import model.game.level.grid.candy.Candy;
 import other.Pair;
 
-public enum Tables {
+public enum Levels {
 	
 	//TABLE_1(, LevelTypes.MOVES),
 	
@@ -26,7 +26,7 @@ public enum Tables {
 	public Map<Pair, Candy> candies;
 	public LevelTypes type;
 	
-	private Tables (Map<Pair, Candy> c, LevelTypes t) {
+	private Levels (Map<Pair, Candy> c, LevelTypes t) {
 		this.candies = c;
 		this.type = t;
 	}
