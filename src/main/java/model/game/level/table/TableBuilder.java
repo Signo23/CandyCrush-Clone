@@ -60,7 +60,7 @@ public interface TableBuilder {
      * Build the table.
      * 
      * @return
-     *          An object implementing the {@link Grid} interface.
+     *          An object implementing the {@link Table} interface.
      *          
      * @throws IllegalStateException
      *          If trying to build the same {@link Table} twice,
@@ -69,7 +69,7 @@ public interface TableBuilder {
      *          if no available color is set.
      *          if the grid is not full.
      */
-	GridImpl build(); 
+	Table build(); 
 	
 	/**
      * Generate a random normal candy.

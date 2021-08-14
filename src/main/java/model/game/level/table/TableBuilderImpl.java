@@ -67,7 +67,7 @@ public class TableBuilderImpl implements TableBuilder {
 	}
 
 	@Override
-	public GridImpl build() {
+	public Table build() {
 	    if (this.alreadyBuilt == true) {
 	        throw new IllegalStateException("You can build the table twice");
 	    }
@@ -84,7 +84,7 @@ public class TableBuilderImpl implements TableBuilder {
 		    throw new IllegalArgumentException("You can build the table if you haven't fill the grid");
 		}
 		this.alreadyBuilt = true;
-		return new GridImpl(this.grid);
+		return new TableImpl(this.grid, this.colors, this.rows, this.columns);
 	}
 
 	@Override

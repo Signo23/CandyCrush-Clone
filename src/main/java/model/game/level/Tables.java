@@ -1,4 +1,4 @@
-package model.game.level.table;
+package model.game.level;
 
 /**
  * The list of all {@link Level} implemented.
