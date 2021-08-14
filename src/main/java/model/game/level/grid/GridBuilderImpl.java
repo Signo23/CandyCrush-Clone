@@ -17,6 +17,7 @@ public class GridBuilderImpl implements GridBuilder {
     private 
     private boolean alreadyBuilt = false;
     
+    @Override
     public GridBuilder setTable(TableBuilder table) {
         this.table = Optional.of(table);
         return this;
@@ -48,7 +49,7 @@ public class GridBuilderImpl implements GridBuilder {
 
 	@Override
 	public Grid build() {
-	    if (this.alreadyBuilt == true) {
+	    if (this.alreadyBuilt) {
             throw new IllegalStateException("You can build the grid twice");
         }
 	    if (this.table.equals(Optional.empty())) {

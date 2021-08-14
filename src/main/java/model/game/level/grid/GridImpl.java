@@ -13,8 +13,8 @@ public class GridImpl implements Grid {
     private final Map<Pair, Candy> grid = new HashMap<>();
     private Objective objective;
     private Controller controller;
-    private String startingMessage;
-    private String endingMessage;
+    private Optional<String> startingMessage;
+    private Optional<String> endingMessage;
     
     public GridImpl (Map<Pair, Optional<Candy>> optionalCandyGrid, Optional<Controller> controller, Optional<Objective> objective, Optional<String> startingMessage, Optional<String> endingMessage) {
         for (int i=0; i<optionalCandyGrid.keySet().size(); i++) {
@@ -25,8 +25,8 @@ public class GridImpl implements Grid {
         }
         this.controller = controller.get();
         this.objective = objective.get();
-        this.startingMessage = startingMessage.get();
-        this.endingMessage = endingMessage.get();
+        this.startingMessage = startingMessage;
+        this.endingMessage = endingMessage;
     }
 
     public Objective getObjective() {
@@ -37,11 +37,11 @@ public class GridImpl implements Grid {
         return controller;
     }
 
-    public String getStartingMessage() {
+    public Optional<String> getStartingMessage() {
         return startingMessage;
     }
 
-    public String getEndingMessage() {
+    public Optional<String> getEndingMessage() {
         return endingMessage;
     }
 

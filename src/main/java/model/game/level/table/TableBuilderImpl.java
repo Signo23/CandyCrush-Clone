@@ -8,7 +8,6 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.Set;
 import other.Pair;
-import model.game.level.grid.GridImpl;
 import model.game.level.grid.candy.Candy;
 import model.game.level.grid.candy.CandyColors;
 import model.game.level.grid.candy.CandyTypes;
@@ -20,7 +19,7 @@ public class TableBuilderImpl implements TableBuilder {
 	private final Random rnd = new Random();
 	private final CandyFactory cFactory = new CandyFactoryImpl();
 	private final Map<Pair, Optional<Candy>> grid = new HashMap<>();
-	private final List<CandyColors> colors = new LinkedList<>();
+	private List<CandyColors> colors = new LinkedList<>();
 	private int rows = 0;
 	private int columns = 0;
 	private boolean alreadySetEmpty = false;
@@ -35,8 +34,8 @@ public class TableBuilderImpl implements TableBuilder {
 
 	@Override
 	public TableBuilder setEmptyCells(Set<Pair> positions) {
-		if (positions.size() > 0 ) {
-		    for (Pair p : positions) {
+		if (positions.size() > 0 ){
+		    for (final Pair p : positions) {
 		        this.grid.put(p, Optional.of(cFactory.getEmpty()));
 		    }
 		    this.alreadySetEmpty = true;
@@ -47,17 +46,17 @@ public class TableBuilderImpl implements TableBuilder {
 	}
 
 	@Override
-	public TableBuilder addAvailableColor(CandyColors color) {
-		this.colors.add(color);
+	public TableBuilder setAvailableColor(final Set<CandyColors> colors) {
+		this.colors = colors;
 		return this;
 	}
 
 	@Override
-	public TableBuilder setCandies(List<CandyColors> colors) {
+	public TableBuilder setCandies() {
 		for (int i = 0; i < this.rows; i++) {
 			for (int j = 0; j < this.columns; j++) {
-				Pair p = new Pair(i, j);
-				Optional<Candy> candy = this.grid.get(p);
+				final Pair p = new Pair(i, j);
+				final Optional<Candy> candy = this.grid.get(p);
 				if (candy.equals(Optional.empty()) || candy.get().getCandyType() != Optional.of(CandyTypes.EMPTY)) {
 						this.grid.put(p, Optional.of(this.getRandomNormalCandy(colors)));
 				}
@@ -77,14 +76,15 @@ public class TableBuilderImpl implements TableBuilder {
 		if (this.alreadySetEmpty = false) {
             throw new IllegalArgumentException("You can build the table if you haven't already set empty spaces");
         } 
-		if (this.colors.size() == 0) {
+		if (this.colors.isEmpty()) {
             throw new IllegalArgumentException("You can build the table if you haven't already choose the color of the candies");
         } 
-		if (this.grid.size() != this.rows*this.columns) {
+		if (this.grid.size() != this.rows * this.columns) {
 		    throw new IllegalArgumentException("You can build the table if you haven't fill the grid");
 		}
 		this.alreadyBuilt = true;
-		return new TableImpl(this.grid, this.colors, this.rows, this.columns);
+		return new TableImpl(this.grid);
+		        //, this.colors, this.rows, this.columns);
 	}
 
 	@Override

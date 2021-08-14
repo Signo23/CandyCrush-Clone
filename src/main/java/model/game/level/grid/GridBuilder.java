@@ -68,7 +68,7 @@ public interface GridBuilder {
      *          if no {@link endingMessage} is set.
      *          
      */
-    GridBuilder build();
+    Grid build();
 	
 
 }

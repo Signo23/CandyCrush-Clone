@@ -9,7 +9,6 @@ import java.util.Optional;
 import model.game.level.grid.candy.Candy;
 import model.game.level.grid.candy.CandyColors;
 import other.Pair;
-
 public class TableImpl implements Table {
     
     private Map<Pair, Optional<Candy>> grid = new HashMap<>();

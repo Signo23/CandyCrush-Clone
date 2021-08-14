@@ -1,6 +1,7 @@
 package model.game.level.grid;
 
 import java.util.Map;
+import java.util.Optional;
 
 import model.game.level.grid.candy.Candy;
 import other.Pair;
@@ -23,13 +24,13 @@ public interface Grid {
      * Gives the starting message of the {@link Grid}.
      * @return the starting message of the {@link Grid}.
      */
-    String getStartingMessage();
+    Optional<String> getStartingMessage();
 
     /**
      * Gives the ending message of the {@link Grid}.
      * @return the ending message of the {@link Grid}.
      */
-    String getEndingMessage();
+    Optional<String> getEndingMessage();
 
     /**
      * Gives the grid of the {@link Grid}.

@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Set;
 
 import other.Pair;
-import model.game.level.grid.GridImpl;
 import model.game.level.grid.candy.Candy;
 import model.game.level.grid.candy.CandyColors;
 
@@ -13,9 +12,9 @@ public interface TableBuilder {
 	  /**
      * Allows to set the dimensions of the Table.
      * 
-     * @param height
+     * @param rows
      *       The height of the Table expressed as number of cells.
-     * @param width
+     * @param columns
      *       The width of the Table expressed as number of cells.
      *       
      * @return
@@ -24,7 +23,7 @@ public interface TableBuilder {
      * @throws IllegalArgumentException
      *       If negative or zero values are passed.
      */
-	TableBuilder setDimensions(int width, int height);
+	TableBuilder setDimensions(int rows, int columns);
 	
 	 /**
      * Allows to modify the structure of the table.
@@ -40,21 +39,19 @@ public interface TableBuilder {
      * Allows to choose the candy color in the table.
      * 
      * @param color
-     *       The positions of the empty candy in the table.
+     *       The list of all available colors.
      * @return
      *       This instance of {@link TableBuilder}.
      */
-	TableBuilder addAvailableColor(CandyColors color);
+	TableBuilder setAvailableColor(Set<CandyColors> colors);
 	
 	/**
      * Fill the table with random candies.
      * 
-     * @param colors 
-     *  The list of all available colors.
      * @return
      *       This instance of {@link TableBuilder}.
      */
-	TableBuilder setCandies(List<CandyColors> colors);
+	TableBuilder setCandies();
 	
 	 /**
      * Build the table.
