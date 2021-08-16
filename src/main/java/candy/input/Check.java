@@ -2,15 +2,11 @@ package candy.input;
 
 import java.util.List;
 
-import model.game.level.grid.candy.Candy;
+import model.game.level.table.Table;
+import other.Pair;
 
 public interface Check {
 
-    /**
-     * Check if the passed candy generate a combination.
-     * @param c
-     * @return List<Candy>
-     */
-     List<Candy> checkMatch(Candy c);
+     List<Pair> checkMatch(Pair newPosition, Pair oldPosition, Table grid);
 
 }
