@@ -5,35 +5,32 @@ import java.util.Map;
 import java.util.Optional;
 
 import model.game.level.grid.candy.Candy;
-import model.game.level.table.TableBuilder;
 import other.Pair;
 
 public class GridImpl implements Grid {
-    
     private final Map<Pair, Candy> grid = new HashMap<>();
     private Objective objective;
     private Controller controller;
     private Optional<String> startingMessage;
     private Optional<String> endingMessage;
-    
-    public GridImpl (Map<Pair, Optional<Candy>> optionalCandyGrid, Optional<Controller> controller, Optional<Objective> objective, Optional<String> startingMessage, Optional<String> endingMessage) {
+    public GridImpl (final Map<Pair, Optional<Candy>> optionalCandyGrid, final Optional<Controller> controller, final Optional<Objective> objective, final Optional<String> startingMessage, final Optional<String> endingMessage) {
         for (int i = 0; i < optionalCandyGrid.keySet().size(); i++) {
             for (int j = 0; j < optionalCandyGrid.values().size(); j++) {
                 final Pair p = new Pair(i, j);
-                this.grid.put(p, (optionalCandyGrid.get(p)).get());
+                this.grid.put(p, optionalCandyGrid.get(p).get());
             }
         }
         this.controller = controller.get();
         this.objective = objective.get();
-        this.startingMessage = startingMessage;
-        this.endingMessage = endingMessage;
+        this.setStartingMessage(startingMessage);
+        this.setEndingMessage(endingMessage);
     }
 
-    public Objective getObjective() {
+    public final Objective getObjective() {
         return objective;
     }
 
-    public Controller getController() {
+    public final Controller getController() {
         return controller;
     }
 
@@ -48,7 +45,12 @@ public class GridImpl implements Grid {
     public final Map<Pair, Candy> getGrid() {
         return grid;
     }
-    
-    
 
+    public final void setStartingMessage(final Optional<String> startingMessage) {
+        this.startingMessage = startingMessage;
+    }
+
+    public final void setEndingMessage(final Optional<String> endingMessage) {
+        this.endingMessage = endingMessage;
+    }
 }
