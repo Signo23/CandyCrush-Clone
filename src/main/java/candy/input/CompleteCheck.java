@@ -26,7 +26,7 @@ public class CompleteCheck extends SimpleCheck implements Check {
         final List<Pair> res = new ArrayList<>();
         final Optional<CandyTypes> typeRef = grid.getGrid().get(oldPos).get().getCandyType();
         final Optional<CandyColors> colorRef = grid.getGrid().get(oldPos).get().getCandyColor();
-        if (grid.getGrid().get(actualPos).get().getCandyType().equals(CandyTypes.BOMB)) {
+        if (grid.getGrid().get(actualPos).get().getCandyType().equals(Optional.of(CandyTypes.BOMB))) {
             for (int i = 0; i < nrows; i++) {
                 for (int j = 0; j < ncolumns; j++) {
                     final Pair pos = new Pair(i, j);

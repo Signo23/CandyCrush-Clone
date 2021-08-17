@@ -35,7 +35,7 @@ public class SimpleCheck implements Check {
         }
         if (result.size() >= MIN_DIM) {
             for (final Pair elem : result) {
-                if (grid.getGrid().get(elem).get().getCandyType().equals(CandyTypes.HORIZONTAL_STRIPED)) {
+                if (grid.getGrid().get(elem).get().getCandyType().equals(Optional.of(CandyTypes.HORIZONTAL_STRIPED))) {
                      final double i = elem.getX();
                      final int ncolumns = grid.getColumns();
                      for (int j = 0; j < ncolumns; j++) {
@@ -56,8 +56,6 @@ public class SimpleCheck implements Check {
         if (grid.getGrid().get(pos).get().getCandyColor().equals(nextColor)) {
             result.add(next);
             controll(next, result, incX, incY, grid);
-        } else {
-            return;
         }
     }
 
