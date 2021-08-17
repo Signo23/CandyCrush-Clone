@@ -2,7 +2,7 @@ package model.game.level.grid;
 
 import java.util.Optional;
 
-import model.game.level.table.TableBuilder;
+import model.game.level.table.Table;
 
 public class GridBuilderImpl implements GridBuilder {
 
@@ -10,10 +10,10 @@ public class GridBuilderImpl implements GridBuilder {
     private Optional<Controller> controller = Optional.empty();
     private Optional<String> startingMessage = Optional.empty();
     private Optional<String> endingMessage = Optional.empty();
-    private Optional<TableBuilder> table = Optional.empty();
+    private Optional<Table> table = Optional.empty();
     private boolean alreadyBuilt;
     @Override
-    public final void setTable(final TableBuilder table) {
+    public final void setTable(final Table table) {
         this.table = Optional.of(table);
     }
     @Override

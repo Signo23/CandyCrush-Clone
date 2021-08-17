@@ -1,6 +1,6 @@
 package model.game.level.grid;
 
-import model.game.level.table.TableBuilder;
+import model.game.level.table.Table;
 
 public interface GridBuilder {
     /**
@@ -9,7 +9,7 @@ public interface GridBuilder {
      * @param table
      *        The {@link Table} to be set.
      */
-    void setTable(TableBuilder table);
+    void setTable(Table table);
     /**
      * Allows to set a {@link Controller} for the {@link Grid}.
      * 
