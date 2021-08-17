@@ -13,31 +13,42 @@ public class InputComponentImpl implements InputComponent {
     public final void update(final Pair position, final InputController ctrl, final Table grid) {
             if (ctrl.isSwitchUp()) {
                 final Pair actualPosition = new Pair(position.getX() - 1, position.getY());
-                if (isSwitchPossible(actualPosition, position, grid)
-                    || isSwitchPossible(position, actualPosition, grid)) {
+                switchCandies(actualPosition, position, grid);
+                if (!isSwitchPossible(actualPosition, position, grid)
+                    && !isSwitchPossible(position, actualPosition, grid)) {
                     switchCandies(actualPosition, position, grid);
                 }
             } else if (ctrl.isSwitchDown()) {
                 final Pair actualPosition = new Pair(position.getX() + 1, position.getY());
-                if (isSwitchPossible(actualPosition, position, grid)
-                    || isSwitchPossible(position, actualPosition, grid)) {
+                switchCandies(actualPosition, position, grid);
+                if (!isSwitchPossible(actualPosition, position, grid)
+                    && !isSwitchPossible(position, actualPosition, grid)) {
                     switchCandies(actualPosition, position, grid);
                 }
             } else if (ctrl.isSwitchLeft()) {
                 final Pair actualPosition = new Pair(position.getX(), position.getY() - 1);
-                if (isSwitchPossible(actualPosition, position, grid)
-                    || isSwitchPossible(position, actualPosition, grid)) {
+                switchCandies(actualPosition, position, grid);
+                if (!isSwitchPossible(actualPosition, position, grid)
+                    && !isSwitchPossible(position, actualPosition, grid)) {
                     switchCandies(actualPosition, position, grid);
                 }
             } else if (ctrl.isSwitchRight()) {
                 final Pair actualPosition = new Pair(position.getX(), position.getY() + 1);
-                if (isSwitchPossible(actualPosition, position, grid)
-                    || isSwitchPossible(position, actualPosition, grid)) {
+                switchCandies(actualPosition, position, grid);
+                if (!isSwitchPossible(actualPosition, position, grid)
+                    && !isSwitchPossible(position, actualPosition, grid)) {
                     switchCandies(actualPosition, position, grid);
                 }
             }
     }
 
+    /**
+     * Control if the switch generate a combination of candies.
+     * @param newPos
+     * @param oldPos
+     * @param grid
+     * @return
+     */
     private boolean isSwitchPossible(final Pair newPos, final Pair oldPos, final Table grid) {
         final CompleteCheck check = new CompleteCheck();
         final Pop pop = new PopImpl();
@@ -51,6 +62,12 @@ public class InputComponentImpl implements InputComponent {
         return false;
     }
 
+    /**
+     * Switch the candies in newPos and oldPos.
+     * @param newPos
+     * @param oldPos
+     * @param table
+     */
     private void switchCandies(final Pair newPos, final Pair oldPos, final Table table) {
         final Map<Pair, Optional<Candy>> grid = table.getGrid();
         final Optional<Candy> temp = grid.get(oldPos);
