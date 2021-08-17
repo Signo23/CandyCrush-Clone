@@ -17,9 +17,9 @@ public class GridImpl implements Grid {
     private Optional<String> endingMessage;
     
     public GridImpl (Map<Pair, Optional<Candy>> optionalCandyGrid, Optional<Controller> controller, Optional<Objective> objective, Optional<String> startingMessage, Optional<String> endingMessage) {
-        for (int i=0; i<optionalCandyGrid.keySet().size(); i++) {
-            for (int j=0; j<optionalCandyGrid.values().size(); j++) {
-                Pair p = new Pair(i,j);
+        for (int i = 0; i < optionalCandyGrid.keySet().size(); i++) {
+            for (int j = 0; j < optionalCandyGrid.values().size(); j++) {
+                final Pair p = new Pair(i, j);
                 this.grid.put(p, (optionalCandyGrid.get(p)).get());
             }
         }
@@ -37,15 +37,15 @@ public class GridImpl implements Grid {
         return controller;
     }
 
-    public Optional<String> getStartingMessage() {
+    public final Optional<String> getStartingMessage() {
         return startingMessage;
     }
 
-    public Optional<String> getEndingMessage() {
+    public final Optional<String> getEndingMessage() {
         return endingMessage;
     }
 
-    public Map<Pair, Candy> getGrid() {
+    public final Map<Pair, Candy> getGrid() {
         return grid;
     }
     

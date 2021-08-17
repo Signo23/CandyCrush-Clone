@@ -14,19 +14,19 @@ public interface Table {
      * Gives the rows of the {@link Table}.
      * @return the {@link rows} of the {@link Table}.
      */
-    //int getRows();
+    int getRows();
     
     /**
      * Gives the columns of the {@link Table}.
      * @return the {@link columns} of the {@link Table}.
      */
-    //int getColumns(); 
+    int getColumns(); 
     
     /**
      * Gives the color in the grid of candies of the {@link Candy}.
      * @return the color in the grid of candies of the {@link Candy}.
      */
-    //List<CandyColors> getColors(); 
+    List<CandyColors> getColors(); 
     
     /**
      * Gives the grid of candies of the {@link Candy}.

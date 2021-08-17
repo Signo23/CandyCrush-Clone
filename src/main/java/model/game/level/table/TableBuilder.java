@@ -16,10 +16,8 @@ public interface TableBuilder {
      *       The height of the Table expressed as number of cells.
      * @param columns
      *       The width of the Table expressed as number of cells.
-     *       
      * @return
-     *       This instance of {@link TableBuilder}.
-     *       
+     *       This instance of {@link TableBuilder}. 
      * @throws IllegalArgumentException
      *       If negative or zero values are passed.
      */
@@ -38,7 +36,7 @@ public interface TableBuilder {
 	/**
      * Allows to choose the candy color in the table.
      * 
-     * @param color
+     * @param colors
      *       The list of all available colors.
      * @return
      *       This instance of {@link TableBuilder}.
@@ -58,7 +56,6 @@ public interface TableBuilder {
      * 
      * @return
      *          An object implementing the {@link Table} interface.
-     *          
      * @throws IllegalStateException
      *          If trying to build the same {@link Table} twice,
      *          if no dimension is set,
@@ -71,10 +68,10 @@ public interface TableBuilder {
 	/**
      * Generate a random normal candy.
      * 
-     * @param colors
+     * @param colorSet
      *       The list of all available colors.
      * @return
      *       This instance of {@link TableBuilder}.
      */
-	Candy getRandomNormalCandy(List<CandyColors> colors);
+	Candy getRandomNormalCandy(Set<CandyColors> colorSet);
 }

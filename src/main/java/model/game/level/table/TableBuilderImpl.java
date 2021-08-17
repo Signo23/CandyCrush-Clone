@@ -1,12 +1,19 @@
 package model.game.level.table;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Random;
 import java.util.Set;
+
+import candy.input.Check;
+import candy.input.CheckImpl;
+import candy.input.Pop;
+import candy.input.PopImpl;
+import candy.input.Refill;
 import other.Pair;
 import model.game.level.grid.candy.Candy;
 import model.game.level.grid.candy.CandyColors;
@@ -19,22 +26,25 @@ public class TableBuilderImpl implements TableBuilder {
 	private final Random rnd = new Random();
 	private final CandyFactory cFactory = new CandyFactoryImpl();
 	private final Map<Pair, Optional<Candy>> grid = new HashMap<>();
-	private List<CandyColors> colors = new LinkedList<>();
+	private Set<CandyColors> colors = new HashSet<>();
 	private int rows = 0;
 	private int columns = 0;
 	private boolean alreadySetEmpty = false;
 	private boolean alreadyBuilt = false;
+	private Check check = new CheckImpl();
+	private Pop pop = new PopImpl();
+	private Refill refill = new Refill();
 
 	@Override
-	public TableBuilder setDimensions(int rows, int columns) {
+    public final TableBuilder setDimensions(int rows, int columns) {
 		this.rows = rows;
 		this.columns = columns;
 		return this;
 	}
 
 	@Override
-	public TableBuilder setEmptyCells(Set<Pair> positions) {
-		if (positions.size() > 0 ){
+    public final TableBuilder setEmptyCells(Set<Pair> positions) {
+		if (positions.isEmpty()) {
 		    for (final Pair p : positions) {
 		        this.grid.put(p, Optional.of(cFactory.getEmpty()));
 		    }
@@ -46,13 +56,13 @@ public class TableBuilderImpl implements TableBuilder {
 	}
 
 	@Override
-	public TableBuilder setAvailableColor(final Set<CandyColors> colors) {
+    public final TableBuilder setAvailableColor(final Set<CandyColors> colors) {
 		this.colors = colors;
 		return this;
 	}
 
 	@Override
-	public TableBuilder setCandies() {
+    public final TableBuilder setCandies() {
 		for (int i = 0; i < this.rows; i++) {
 			for (int j = 0; j < this.columns; j++) {
 				final Pair p = new Pair(i, j);
@@ -64,16 +74,37 @@ public class TableBuilderImpl implements TableBuilder {
 		}
 		return this;
 	}
-
+	
+	
 	@Override
-	public Table build() {
-	    if (this.alreadyBuilt == true) {
+    public final TableBuilder checkTable() {
+	    boolean moves = false;
+	    while (moves) {
+	        for (int i = 0; i < this.rows; i++) {
+	            for (int j = 0; j < this.columns; j++) {
+    	            final Pair p = new Pair(i, j);
+    	            final List<Pair> result = new LinkedList<>();
+    	            result = check.checkMatch(p, this.grid);
+    	            if (!result.isEmpty()) {
+    	                pop.removeCandy(result, this.grid);
+    	                refill.scrollDown(this.grid);
+    	                moves = true;
+    	            }
+	            }
+	        }
+	    }
+	    return this;
+	}
+	
+	@Override
+    public final Table build() {
+	    if (this.alreadyBuilt) {
 	        throw new IllegalStateException("You can build the table twice");
 	    }
 		if (this.rows < 0 || this.columns < 0) {
 		    throw new IllegalArgumentException("You can build the table if you haven't already set dimensions");
 		} 
-		if (this.alreadySetEmpty = false) {
+		if (!this.alreadySetEmpty) {
             throw new IllegalArgumentException("You can build the table if you haven't already set empty spaces");
         } 
 		if (this.colors.isEmpty()) {
@@ -83,12 +114,15 @@ public class TableBuilderImpl implements TableBuilder {
 		    throw new IllegalArgumentException("You can build the table if you haven't fill the grid");
 		}
 		this.alreadyBuilt = true;
-		return new TableImpl(this.grid);
-		        //, this.colors, this.rows, this.columns);
+		return new TableImpl(this.grid, this.colors, this.rows, this.columns);
 	}
 
 	@Override
-	public Candy getRandomNormalCandy(final List<CandyColors> colors) {
+    public final Candy getRandomNormalCandy(final Set<CandyColors> colorSet) {
+	    final List<CandyColors> colors = new LinkedList<>();
+	    for (final CandyColors cc : colorSet) {
+	        colors.add(cc);
+	    }
 		return cFactory.getNormalCandy(colors.get(rnd.nextInt(colors.size())));
 	}
 

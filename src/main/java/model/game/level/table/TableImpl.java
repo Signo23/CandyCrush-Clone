@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 import model.game.level.grid.candy.Candy;
 import model.game.level.grid.candy.CandyColors;
@@ -12,31 +13,34 @@ import other.Pair;
 public class TableImpl implements Table {
     
     private Map<Pair, Optional<Candy>> grid = new HashMap<>();
-    //private List<CandyColors> colors = new LinkedList<>();
-    //private int rows = 0;
-    //private int columns = 0;
+    private List<CandyColors> colors = new LinkedList<>();
+    private int rows = 0;
+    private int columns = 0;
     
-    public TableImpl (Map<Pair, Optional<Candy>> g) {
-            //List<CandyColors> col, int row, int column) {
+    public TableImpl(final Map<Pair, Optional<Candy>> g, final Set<CandyColors> colorSet, final int row, final int column) {
         this.grid = g;
-        //this.colors = col;
-        //this.rows = row;
-        //this.columns = column;
+        final List<CandyColors> col = new LinkedList<>();
+        for (final CandyColors cc : colorSet) {
+            col.add(cc);
+        }
+        this.colors = col;
+        this.rows = row;
+        this.columns = column;
     }
 
-    //public int getRows() {
-        //return rows;
-    //}
+    public final int getRows() {
+        return rows;
+    }
 
-    //public int getColumns() {
-        //return columns;
-    //}
+    public final int getColumns() {
+        return columns;
+    }
 
-    //public List<CandyColors> getColors() {
-        //return colors;
-    //}
+    public final List<CandyColors> getColors() {
+        return colors;
+    }
     
-    public Map<Pair, Optional<Candy>> getGrid() {
+    public final Map<Pair, Optional<Candy>> getGrid() {
         return grid;
     }
 
