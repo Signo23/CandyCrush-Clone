@@ -59,11 +59,11 @@ public enum Levels {
 	private Levels (int rows, int columns, Set<Pair> positions, Set<CandyColors> colors, 
 	        LevelTypes type, Optional<Integer> move) {
 	        //Optional<Time> time) {
-		this.candies = builder.setDimensions(rows, columns)
-		                        .setEmptyCells(positions)
-		                        .setAvailableColor(colors)
-		                        .setCandies()
-		                        .build();
+		builder.setDimensions(rows, columns);
+		builder.setEmptyCells(positions);
+		builder.setAvailableColor(colors);
+		builder.setCandies();
+		this.candies= builder.build();
 		this.type = type;
 		this.moves = move;
 		//this.time = time;
