@@ -3,12 +3,12 @@ package candy.graphics;
 public interface Scene {
 
     /**
-     * render the view
+     * render the view.
      */
     void render();
 
     /**
-     * render the GameOver view
+     * render the GameOver view.
      */
     void renderGameOver();
 }

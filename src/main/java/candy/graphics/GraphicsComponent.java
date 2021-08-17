@@ -9,6 +9,6 @@ public interface GraphicsComponent {
      * @param candy to update
      * @param graphic
      */
-    void update(Candy candy, Graphics graphic);
+    void updateCandy(Candy candy, Graphics graphic);
 
 }
