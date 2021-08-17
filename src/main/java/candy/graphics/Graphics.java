@@ -4,6 +4,10 @@ import model.game.level.grid.candy.Candy;
 
 public interface Graphics {
 
-    void drawGrid(Candy candy);
+    /**
+     * 
+     * @param candy to draw
+     */
+    void drawCandy(Candy candy);
 
 }
