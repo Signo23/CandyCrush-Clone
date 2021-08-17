@@ -7,6 +7,6 @@ import other.Pair;
 
 public interface Check {
 
-     List<Pair> checkMatch(Pair newPosition, Pair oldPosition, Table grid);
+    List<Pair> checkMatch(Pair newPosition, Table grid);
 
 }
