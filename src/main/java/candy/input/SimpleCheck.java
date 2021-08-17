@@ -17,7 +17,7 @@ public class SimpleCheck implements Check {
     private static final int NO_INC = 0;
 
     public final List<Pair> checkMatch(final Pair position, final Table grid) {
-        List<Pair> result = new ArrayList<>();
+        final List<Pair> result = new ArrayList<>();
         int incX = NO_INC;
         int incY = PREC;
         result.add(position);

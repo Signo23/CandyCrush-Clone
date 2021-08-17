@@ -5,6 +5,12 @@ import other.Pair;
 
 public interface InputComponent {
 
-    void update(Pair position, InputController c, Table grid);
+    /**
+     * Update the grid after check if there is a combination of candies.
+     * @param position
+     * @param ctrl
+     * @param grid
+     */
+    void update(Pair position, InputController ctrl, Table grid);
 
 }

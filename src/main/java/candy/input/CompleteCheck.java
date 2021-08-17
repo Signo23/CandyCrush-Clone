@@ -20,6 +20,13 @@ public class CompleteCheck extends SimpleCheck implements Check {
         return result;
     }
 
+    /**
+     * Control if there is a Color Bomb combination.
+     * @param actualPos
+     * @param oldPos
+     * @param grid
+     * @return the List<Pair> with the positions of the candies to remove or an Empty List<Pair>
+     */
     private List<Pair> bombCheck(final Pair actualPos, final Pair oldPos, final Table grid) {
         final int nrows = grid.getRows();
         final int ncolumns = grid.getColumns();
