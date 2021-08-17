@@ -36,14 +36,13 @@ public class TableBuilderImpl implements TableBuilder {
 	private Refill refill = new Refill();
 
 	@Override
-    public final TableBuilder setDimensions(int rows, int columns) {
+    public final void setDimensions(final int rows, final int columns) {
 		this.rows = rows;
 		this.columns = columns;
-		return this;
 	}
 
 	@Override
-    public final TableBuilder setEmptyCells(Set<Pair> positions) {
+    public final void setEmptyCells(final Set<Pair> positions) {
 		if (positions.isEmpty()) {
 		    for (final Pair p : positions) {
 		        this.grid.put(p, Optional.of(cFactory.getEmpty()));
@@ -52,17 +51,15 @@ public class TableBuilderImpl implements TableBuilder {
 		} else {
 		    this.alreadySetEmpty = true;
 		}
-		return this;
 	}
 
 	@Override
-    public final TableBuilder setAvailableColor(final Set<CandyColors> colors) {
+    public final void setAvailableColor(final Set<CandyColors> colors) {
 		this.colors = colors;
-		return this;
 	}
 
 	@Override
-    public final TableBuilder setCandies() {
+    public final void setCandies() {
 		for (int i = 0; i < this.rows; i++) {
 			for (int j = 0; j < this.columns; j++) {
 				final Pair p = new Pair(i, j);
@@ -72,14 +69,14 @@ public class TableBuilderImpl implements TableBuilder {
 				}
 			}
 		}
-		return this;
 	}
 	
 	
 	@Override
-    public final TableBuilder checkTable() {
-	    boolean moves = false;
+    public final void checkTable() {
+	    boolean moves;
 	    while (moves) {
+	        moves = false;
 	        for (int i = 0; i < this.rows; i++) {
 	            for (int j = 0; j < this.columns; j++) {
     	            final Pair p = new Pair(i, j);
@@ -89,11 +86,11 @@ public class TableBuilderImpl implements TableBuilder {
     	                pop.removeCandy(result, this.grid);
     	                refill.scrollDown(this.grid);
     	                moves = true;
+    	                break;
     	            }
 	            }
 	        }
 	    }
-	    return this;
 	}
 	
 	@Override

@@ -3,62 +3,47 @@ package model.game.level.grid;
 import model.game.level.table.TableBuilder;
 
 public interface GridBuilder {
-    
     /**
      * Allows to set a {@link Table} for the {@link Grid}.
      * 
-     * @return
-     *       This instance of {@link GridBuilder}.
+     * @param table
+     *        The {@link Table} to be set.
      */
-    GridBuilder setTable(TableBuilder table);
-    
+    void setTable(TableBuilder table);
     /**
      * Allows to set a {@link Controller} for the {@link Grid}.
      * 
-     * @return
-     *       This instance of {@link GridBuilder}.
+     * @param controller
+     *        The {@link Controller} to be set.
      */
-    GridBuilder setController(final Controller controller);
-    
+    void setController(Controller controller);
     /**
      * Allows to set the {@link Grid}'s objective.
      * 
      * @param objective
      *        The {@link Objective} to be set.
-     *        
-     * @return
-     *       This instance of {@link GridBuilder}.
      */
-    GridBuilder setObjective(final Objective objective);
+    void setObjective(Objective objective);
 
     /**
      * Allows to set the starting message of the {@link Grid}.
      * 
      * @param startMsg
      *          The message to be printed.
-     *          
-     * @return
-     *          This instance of {@link GridBuilder}.
      */
-    GridBuilder setStartingMessage(final String startMsg);
-    
+    void setStartingMessage(String startMsg);
     /**
      * Allows to set a message that needs to be shown after the end of this {@link Grid}.
      * 
      * @param endMsg
      *          The message to be printed.
-     *          
-     * @return
-     *          This instance of {@link GridBuilder}.
      */
-    GridBuilder setEndingMessage(final String endMsg);
-    
+    void setEndingMessage(String endMsg);
     /**
      * Build the grid.
      * 
      * @return
      *          An object implementing the {@link Level} interface.
-     *          
      * @throws IllegalStateException
      *          If trying to build the same {@link Grid} twice,
      *          if no {@link Table} is set
@@ -66,7 +51,6 @@ public interface GridBuilder {
      *          if no {@link Controller} is set.
      *          if no {@link startingMessage} is set.
      *          if no {@link endingMessage} is set.
-     *          
      */
     Grid build();
 	
