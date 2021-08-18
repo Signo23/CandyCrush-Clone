@@ -1,4 +1,4 @@
-package model.game;
+package candy.outcome;
 
 /**
  * Contains the possible outcome of the game.
