@@ -37,12 +37,8 @@ public interface TableBuilder {
      *
      */
     void setCandies();
-    /**
-     * Check if the table have moves, if is true, the grid is 
-     * updated until there are any moves in the grid.
-     *
-     */
-    void checkTable();
+   /* 
+    void checkTable(); */
     /**
      * Build the table.
      * 
