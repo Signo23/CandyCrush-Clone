@@ -21,7 +21,8 @@ public enum Maps {
     MAP_1(15, 20, //dimension
             null,  //empty cells (empty candy)
             Set.of(CandyColors.RED, CandyColors.ORANGE, CandyColors.YELLOW), //available colors
-            Optional.of(35)), //moves
+            Optional.of(35),
+            Optional.empty()), //moves
     /**
      * Is the map of second {@link Level}.
      *
@@ -30,7 +31,8 @@ public enum Maps {
             null, //empty cells (empty candy)
             Set.of(CandyColors.RED, CandyColors.ORANGE, CandyColors.YELLOW, 
                     CandyColors.PURPLE), //available colors
-            Optional.of(35)), //moves
+            Optional.of(35),
+            Optional.empty()), //moves
     /*
      * Third table
      * X X X o o o o o X X X
@@ -58,7 +60,8 @@ public enum Maps {
                     new Pair(9, 7), new Pair(9, 8), new Pair(9, 9)), //empty cells (empty candy)
             Set.of(CandyColors.RED, CandyColors.ORANGE, CandyColors.YELLOW, 
                     CandyColors.PURPLE), //available colors
-            Optional.of(40)), //moves
+            Optional.of(40),
+            Optional.empty()), //moves
     /*
      * Fourth table
      * X X o o o o o o o o X X X X X
@@ -89,7 +92,8 @@ public enum Maps {
                     new Pair(9, 2), new Pair(9, 3), new Pair(9, 4)), //empty cells (empty candy)
             Set.of(CandyColors.ORANGE, CandyColors.RED, CandyColors.PURPLE, 
                     CandyColors.BLUE, CandyColors.GREEN), //available colors
-            Optional.empty()), //moves
+            Optional.empty(),
+            Optional.of(180)), //moves
     /*
      * Fifth table
      * X X o o o o o o o X X
@@ -120,26 +124,31 @@ public enum Maps {
                     //empty cells (empty candy)
             Set.of(CandyColors.ORANGE, CandyColors.RED, CandyColors.PURPLE, 
                     CandyColors.BLUE, CandyColors.GREEN), //available colors;
-            Optional.empty()); //moves
+            Optional.empty(),
+            Optional.of(120)); //moves
     private TableBuilder builder = new TableBuilderImpl();
     private Table candies;
     private Optional<Integer> moves;
+    private Optional<Integer> time;
     Maps(final int rows, final int columns, final Set<Pair> positions, 
-            final Set<CandyColors> colors, final Optional<Integer> moves) {
+            final Set<CandyColors> colors, final Optional<Integer> moves, final Optional<Integer> time) {
         builder.setDimensions(rows, columns);
         builder.setEmptyCells(positions);
         builder.setAvailableColor(colors);
         builder.setCandies();
         this.candies = builder.build();
         this.moves = moves;
+        this.time = time;
     }
 
     public Table getCandies() {
         return candies;
     }
-
     public Optional<Integer> getMoves() {
         return moves;
+    }
+    public Optional<Integer> getTime() {
+        return time;
     }
 
 }
