@@ -8,7 +8,7 @@ import candy.input.Pop;
 import candy.input.PopImpl;
 import candy.input.Refill;
 import candy.input.SimpleCheck;
-import model.game.level.table.Table;
+import model.game.level.grid.table.Table;
 import other.Pair;
 
 public class GridBuilderImpl implements GridBuilder {

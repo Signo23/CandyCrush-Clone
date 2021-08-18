@@ -1,4 +1,4 @@
-package model.game.level.table;
+package model.game.level.grid.table;
 
 import java.util.HashMap;
 
@@ -16,11 +16,11 @@ import candy.input.Pop;
 import candy.input.PopImpl;
 import candy.input.Refill;*/
 import other.Pair;
-import model.game.level.grid.candy.Candy;
-import model.game.level.grid.candy.CandyColors;
-import model.game.level.grid.candy.CandyTypes;
-import model.game.level.grid.candy.CandyFactory;
-import model.game.level.grid.candy.CandyFactoryImpl;
+import model.game.level.grid.table.candy.Candy;
+import model.game.level.grid.table.candy.CandyColors;
+import model.game.level.grid.table.candy.CandyTypes;
+import model.game.level.grid.table.candy.CandyFactory;
+import model.game.level.grid.table.candy.CandyFactoryImpl;
 
 public class TableBuilderImpl implements TableBuilder {
     private final CandyFactory cFactory = new CandyFactoryImpl();

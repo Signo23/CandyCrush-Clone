@@ -1,4 +1,4 @@
-package model.game.level.table;
+package model.game.level.grid.table;
 
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -7,8 +7,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
-import model.game.level.grid.candy.Candy;
-import model.game.level.grid.candy.CandyColors;
+import model.game.level.grid.table.candy.Candy;
+import model.game.level.grid.table.candy.CandyColors;
 import other.Pair;
 
 public class TableImpl implements Table {

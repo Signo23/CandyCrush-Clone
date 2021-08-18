@@ -8,11 +8,11 @@ import java.util.Set;
  *
  */
 
-import model.game.level.table.Table;
-import model.game.level.table.TableBuilder;
-import model.game.level.table.TableBuilderImpl;
+import model.game.level.grid.table.Table;
+import model.game.level.grid.table.TableBuilder;
+import model.game.level.grid.table.TableBuilderImpl;
 import other.Pair;
-import model.game.level.grid.candy.CandyColors;
+import model.game.level.grid.table.candy.CandyColors;
 
 public enum Maps {
     /**

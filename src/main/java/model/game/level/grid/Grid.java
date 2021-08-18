@@ -3,7 +3,7 @@ package model.game.level.grid;
 import java.util.Map;
 import java.util.Optional;
 
-import model.game.level.grid.candy.Candy;
+import model.game.level.grid.table.candy.Candy;
 import other.Pair;
 
 public interface Grid {
