@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import model.game.level.grid.candy.CandyColors;
-import model.game.level.grid.candy.CandyTypes;
-import model.game.level.table.Table;
+import model.game.level.grid.table.candy.CandyTypes;
+import model.game.level.grid.table.candy.CandyColors;
+import model.game.level.grid.table.Table;
 import other.Pair;
 
 public class SimpleCheck implements Check {

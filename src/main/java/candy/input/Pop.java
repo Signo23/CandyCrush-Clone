@@ -2,7 +2,7 @@ package candy.input;
 
 import java.util.List;
 
-import model.game.level.table.Table;
+import model.game.level.grid.table.Table;
 import other.Pair;
 
 public interface Pop {
