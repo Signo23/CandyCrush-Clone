@@ -1,16 +1,25 @@
 package candy.core;
 
+import java.util.LinkedList;
+
 import candy.graphics.Scene;
 import candy.graphics.SwingScene;
 import candy.input.InputControllerImpl;
 import model.GameState;
+import model.LevelEvent;
+import model.LevelEventListener;
 
-public class GameEngine {
+public class GameEngine implements LevelEventListener {
 
     private static final long PERIOD = 20;
     private Scene view;
     private GameState gameState;
     private InputControllerImpl controller;
+    private LinkedList<LevelEvent> eventQueue;
+
+    public GameEngine() {
+        this.eventQueue = new LinkedList<>();
+    }
 
     public final void initGame() {
         this.gameState = new GameState();
@@ -22,6 +31,7 @@ public class GameEngine {
         while (!this.gameState.isGameOver()) {
             final long currentTime = System.currentTimeMillis();
             this.processInput();
+            this.updateGame();
             this.render();
             this.waitNextFrame(currentTime);
         }
@@ -43,11 +53,22 @@ public class GameEngine {
 //        this.gameState.getLevel().updateInput(this.controller);
     }
 
+    private void updateGame() {
+        this.eventQueue.stream().forEach(ev -> {
+//      TODO
+        });
+    }
+
     private void render() {
         this.view.render();
     }
 
     private void renderGameOver() {
         //TODO
+    }
+
+    @Override
+    public final void notifyEvent(final LevelEvent event) {
+        this.eventQueue.add(event);
     }
 }
