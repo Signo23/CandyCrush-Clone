@@ -38,7 +38,11 @@ public class SettingsGUI extends JFrame {
         gbc.gridy = 0;
         gbc.insets = new Insets(0, 0, 0, 4);
         gbc.anchor = GridBagConstraints.WEST;
-        final String[] choices = {"1024 x 1080", "1000 x 720"};
+
+        final String[] choices = new String[Resolution.values().length];
+        for (int i = 0; i < choices.length; i++) {
+            choices[i] = Resolution.values()[i].getActualString();
+        }
         final JComboBox<String> box = new JComboBox<>(choices);
         panel.add(box, gbc);
         gbc.gridy++;
