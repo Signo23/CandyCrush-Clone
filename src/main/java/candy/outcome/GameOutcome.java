@@ -1,4 +1,4 @@
-package model.game;
+package candy.outcome;
 
 /**
  * Contains the possible outcome of the game.
@@ -17,11 +17,15 @@ public enum GameOutcome {
     /**
      * Minimum score objective has been reached.
      */
-    POINT_GOAL_ACHIEVED("Congrats! You have archieved the minimum threshold of points!"),
+    //POINT_GOAL_ACHIEVED("Congrats! You have archieved the minimum threshold of points!"),
     /**
      * A further objective has been reached.
      */
-    OBJECTIVE_ACHIEVED("Congrats! You have archieved the objective!");
+    OBJECTIVE_ACHIEVED("Congrats! You have archieved the objective!"),
+    /**
+     * All the levels have been passed.
+     */
+    LEVELS_ENDED("Congrats! You have passed all levels! Thank you for have played with us.");
     private String message;
     GameOutcome(final String msg) {
         this.message = msg;
