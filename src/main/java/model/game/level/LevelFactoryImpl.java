@@ -1,7 +1,5 @@
 package model.game.level;
 
-import java.util.Optional;
-
 import model.game.level.grid.GridBuilder;
 
 public class LevelFactoryImpl implements LevelFactory {
@@ -13,8 +11,7 @@ public class LevelFactoryImpl implements LevelFactory {
         this.builder.setEndingMessage(endingMessage);
         this.builder.setController(controller);
         this.builder.setTable(Maps.MAP_1.getCandies());
-        return new LevelImpl(builder.build(), LevelTypes.MOVES, Maps.MAP_1.getMoves());
-                //final Optional<Time> time);
+        return new LevelImpl(builder.build(), LevelTypes.MOVES, Maps.MAP_1.getMoves(), Maps.MAP_1.getTime());
     }
 
     @Override
@@ -24,8 +21,7 @@ public class LevelFactoryImpl implements LevelFactory {
         this.builder.setEndingMessage(endingMessage);
         this.builder.setController(controller);
         this.builder.setTable(Maps.MAP_2.getCandies());
-        return new LevelImpl(builder.build(), LevelTypes.MOVES, Maps.MAP_2.getMoves());
-                //final Optional<Time> time);
+        return new LevelImpl(builder.build(), LevelTypes.MOVES, Maps.MAP_2.getMoves(), Maps.MAP_2.getTime());
     }
 
     @Override
@@ -35,8 +31,7 @@ public class LevelFactoryImpl implements LevelFactory {
         this.builder.setEndingMessage(endingMessage);
         this.builder.setController(controller);
         this.builder.setTable(Maps.MAP_3.getCandies());
-        return new LevelImpl(builder.build(), LevelTypes.MOVES, Maps.MAP_3.getMoves());
-                //final Optional<Time> time);
+        return new LevelImpl(builder.build(), LevelTypes.MOVES, Maps.MAP_3.getMoves(), Maps.MAP_3.getTime());
     }
 
     @Override
@@ -46,8 +41,7 @@ public class LevelFactoryImpl implements LevelFactory {
         this.builder.setEndingMessage(endingMessage);
         this.builder.setController(controller);
         this.builder.setTable(Maps.MAP_4.getCandies());
-        return new LevelImpl(builder.build(), LevelTypes.TIME, Optional.empty());
-                //final Optional<Time> time);
+        return new LevelImpl(builder.build(), LevelTypes.TIME, Maps.MAP_4.getMoves(), Maps.MAP_4.getTime());
     }
 
     @Override
@@ -57,8 +51,7 @@ public class LevelFactoryImpl implements LevelFactory {
         this.builder.setEndingMessage(endingMessage);
         this.builder.setController(controller);
         this.builder.setTable(Maps.MAP_5.getCandies());
-        return new LevelImpl(builder.build(), LevelTypes.TIME, Optional.empty());
-                //final Optional<Time> time);
+        return new LevelImpl(builder.build(), LevelTypes.TIME, Maps.MAP_5.getMoves(), Maps.MAP_5.getTime());
     }
 
 
