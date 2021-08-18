@@ -4,13 +4,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import model.game.level.grid.candy.Candy;
-import model.game.level.table.Table;
+import model.game.level.grid.table.Table;
+import model.game.level.grid.table.candy.Candy;
 import other.Pair;
+
+
 
 public class InputComponentImpl implements InputComponent {
 
-    public final void update(final Pair position, final InputController ctrl, final Table grid) {
+    public final void update(final InputController ctrl, final Table grid) {
+            final Pair position = ctrl.getPosition();
             if (ctrl.isSwitchUp()) {
                 final Pair actualPosition = new Pair(position.getX() - 1, position.getY());
                 switchCandies(actualPosition, position, grid);
