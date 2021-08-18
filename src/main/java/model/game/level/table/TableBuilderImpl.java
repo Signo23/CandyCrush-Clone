@@ -1,6 +1,7 @@
 package model.game.level.table;
 
 import java.util.HashMap;
+
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.Random;
 import java.util.Set;
 
 import candy.input.Check;
-import candy.input.CheckImpl;
+import candy.input.SimpleCheck;
 import candy.input.Pop;
 import candy.input.PopImpl;
 import candy.input.Refill;
@@ -65,7 +66,7 @@ public class TableBuilderImpl implements TableBuilder {
     @Override
     public final void checkTable() {
         boolean moves;
-        final Check check = new CheckImpl();
+        final Check check = new SimpleCheck();
         final Pop pop = new PopImpl();
         final Refill refill = new Refill();
         while (moves) {
