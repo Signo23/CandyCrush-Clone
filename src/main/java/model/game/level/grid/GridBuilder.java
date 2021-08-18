@@ -1,6 +1,6 @@
 package model.game.level.grid;
 
-import model.game.level.table.Table;
+import model.game.level.grid.table.Table;
 
 public interface GridBuilder {
     /**

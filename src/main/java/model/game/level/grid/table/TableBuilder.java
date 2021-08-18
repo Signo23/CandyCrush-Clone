@@ -1,10 +1,10 @@
-package model.game.level.table;
+package model.game.level.grid.table;
 
 import java.util.Set;
 
 import other.Pair;
-import model.game.level.grid.candy.Candy;
-import model.game.level.grid.candy.CandyColors;
+import model.game.level.grid.table.candy.Candy;
+import model.game.level.grid.table.candy.CandyColors;
 
 public interface TableBuilder {
     /**

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import model.game.level.grid.candy.Candy;
+import model.game.level.grid.table.candy.Candy;
 import other.Pair;
 
 public class GridImpl implements Grid {
@@ -13,8 +13,6 @@ public class GridImpl implements Grid {
     private Controller controller;
     private Optional<String> startingMessage;
     private Optional<String> endingMessage;
-    public GridImpl() {
-    }
     public GridImpl (final Map<Pair, Optional<Candy>> optionalCandyGrid, final Optional<Controller> controller, final Optional<Objective> objective, final Optional<String> startingMessage, final Optional<String> endingMessage) {
         for (int i = 0; i < optionalCandyGrid.keySet().size(); i++) {
             for (int j = 0; j < optionalCandyGrid.values().size(); j++) {
