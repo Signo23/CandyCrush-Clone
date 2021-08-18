@@ -2,7 +2,9 @@ package model.game.level.grid;
 
 import java.util.Optional;
 
+import candy.input.Refill;
 import model.game.level.table.Table;
+import other.Pair;
 
 public class GridBuilderImpl implements GridBuilder {
 
@@ -32,6 +34,31 @@ public class GridBuilderImpl implements GridBuilder {
     public final void setEndingMessage(final String endMsg) {
         this.endingMessage = Optional.of(endMsg);
     }
+    /*public final void checkTable() {
+        boolean moves;
+        final Check check = new SimpleCheck();
+        final Pop pop = new PopImpl();
+        final Refill refill = new Refill();
+        while (moves) {
+            moves = false;
+            for (int i = 0; i < this.table.get().getRows(); i++) {
+                for (int j = 0; j < this.table.get().getColumns(); j++) {
+                    final Pair p = new Pair(i, j);
+                    final List<Pair> result;
+                    result = check.checkMatch(p, this.table.get());
+                    if (!result.isEmpty()) {
+                        pop.removeCandy(result, this.table.get());
+                        refill.scrollDown(this.table.get());
+                        moves = true;
+                        i = this.rows;
+                        j = this.columns;
+                        alreadyChecked = false;
+                    }
+                }
+            }
+        }
+        alreadyChecked = true;
+    }*/
     @Override
     public final Grid build() {
         if (this.alreadyBuilt) {
