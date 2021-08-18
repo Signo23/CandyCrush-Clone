@@ -2,7 +2,7 @@ package candy.graphics;
 
 import model.game.level.grid.table.candy.Candy;
 
-public interface Graphics {
+public interface GraphicsDraw {
 
     /**
      * 
