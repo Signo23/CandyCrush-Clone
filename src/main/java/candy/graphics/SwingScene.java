@@ -32,7 +32,7 @@ public final class SwingScene extends JFrame implements Scene {
         this.setVisible(true);
     }
 
-    public void paintComponent(final Graphics g) {
+    public void paintComponents(final Graphics g) {
         super.paintComponents(g);
         g.drawImage(loader.getBackgroung(), 0, 0, this);
     }
