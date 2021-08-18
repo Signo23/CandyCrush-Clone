@@ -40,6 +40,12 @@ public interface GridBuilder {
      */
     void setEndingMessage(String endMsg);
     /**
+     * Check if the table have moves, if is true, the table is 
+     * updated until there are any moves in the grid.
+     *
+     **/
+    void checkTable(); 
+    /**
      * Build the grid.
      * 
      * @return
