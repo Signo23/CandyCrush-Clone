@@ -1,4 +1,4 @@
-package model.game.level.grid.candy;
+package model.game.level.grid.table.candy;
 
 import java.util.Optional;
 
