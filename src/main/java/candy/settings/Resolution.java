@@ -9,11 +9,11 @@ public enum Resolution {
     /**
      * Low quality.
      */
-    LOW(new Dimension(768, 576), "768 x 576"),
+    LOW(new Dimension(768, 576), "768x576"),
     /**
      * High quality.
      */
-    HIGH(new Dimension(1200, 900), "1200 x 576");
+    HIGH(new Dimension(1200, 900), "1200x900");
 
     private final Dimension dimension;
     private final String actualString;

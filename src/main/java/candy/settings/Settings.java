@@ -7,27 +7,25 @@ import java.awt.Dimension;
 
 public final class Settings {
 
-    private static final int DEFAULT_X_DIMENSION = 1024;
-    private static final int DEFAULT_Y_DIMENSION = 1080;
-    private Dimension size;
+    private Resolution resolution;
     private Boolean sound;
 
     public Settings() {
-        this.size = new Dimension(DEFAULT_Y_DIMENSION, DEFAULT_X_DIMENSION);
+        this.resolution = Resolution.LOW;
         this.sound = false;
     }
     /**
      * @return the size
      */
     public Dimension getSize() {
-        return size;
+        return resolution.getDimension();
         }
 
     /**
-     * @param size the size to set
+     * @param resolution the size to set
      */
-    public void setSize(final Dimension size) {
-        this.size = size;
+    public void setResolution(final Resolution resolution) {
+        this.resolution = resolution;
         }
 
     /**
@@ -46,6 +44,6 @@ public final class Settings {
 
     @Override
     public String toString() {
-        return "Settings [size=" + size + ", sound=" + sound + "]";
+        return "Settings [resolution=" + resolution + ", sound=" + sound + "]";
         }
 }
