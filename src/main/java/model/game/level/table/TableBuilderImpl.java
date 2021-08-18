@@ -10,11 +10,11 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.Set;
 
-import candy.input.Check;
+/*import candy.input.Check;
 import candy.input.SimpleCheck;
 import candy.input.Pop;
 import candy.input.PopImpl;
-import candy.input.Refill;
+import candy.input.Refill;*/
 import other.Pair;
 import model.game.level.grid.candy.Candy;
 import model.game.level.grid.candy.CandyColors;
@@ -29,7 +29,7 @@ public class TableBuilderImpl implements TableBuilder {
     private int rows;
     private int columns;
     private boolean alreadySetEmpty;
-    private boolean alreadyChecked;
+    //private boolean alreadyChecked;
     private boolean alreadyBuilt;
     @Override
     public final void setDimensions(final int rows, final int columns) {
@@ -63,7 +63,7 @@ public class TableBuilderImpl implements TableBuilder {
             }
         }
     }
-    @Override
+    /*@Override
     public final void checkTable() {
         boolean moves;
         final Check check = new SimpleCheck();
@@ -88,7 +88,7 @@ public class TableBuilderImpl implements TableBuilder {
             }
         }
         alreadyChecked = true;
-    }
+    }*/
     @Override
     public final Table build() {
         if (this.alreadyBuilt) {
@@ -106,9 +106,9 @@ public class TableBuilderImpl implements TableBuilder {
         if (this.grid.size() != this.rows * this.columns) {
             throw new IllegalArgumentException("You can build the table if you haven't fill the grid");
         }
-        if (!this.alreadyChecked) {
+        /*if (!this.alreadyChecked) {
             throw new IllegalStateException("You can build the table if you haven't checked it");
-        }
+        }*/
         this.alreadyBuilt = true;
         return new TableImpl(this.grid, this.colors, this.rows, this.columns);
     }
