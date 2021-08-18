@@ -13,6 +13,7 @@ import model.game.level.grid.table.candy.CandyTypes;
 public class PicLoader {
 
     private Image blue, yellow, orange, red, purple, green, bomb, strBlue, strYellow, strOrange, strRed, strPurple, strGreen;
+    private Image backgroung;
     private final Resolution resolution;
 
     public PicLoader(final Resolution resolution) {
@@ -35,6 +36,8 @@ public class PicLoader {
         this.strPurple = CandyReader.getCandyImage(resolution, CandyTypes.HORIZONTAL_STRIPED, CandyColors.PURPLE);
         this.strRed = CandyReader.getCandyImage(resolution, CandyTypes.HORIZONTAL_STRIPED, CandyColors.RED);
         this.strYellow = CandyReader.getCandyImage(resolution, CandyTypes.HORIZONTAL_STRIPED, CandyColors.YELLOW);
+
+        this.backgroung = CandyReader.getBackground(resolution);
     }
 
     /**
@@ -126,6 +129,13 @@ public class PicLoader {
      */
     public Image getStrGreen() {
         return strGreen;
+    }
+
+    /**
+     * @return the backgroung
+     */
+    public Image getBackgroung() {
+        return backgroung;
     }
 
 }

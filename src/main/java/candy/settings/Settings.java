@@ -3,7 +3,6 @@
  */
 package candy.settings;
 
-import java.awt.Dimension;
 
 public final class Settings {
 
@@ -15,12 +14,11 @@ public final class Settings {
         this.sound = false;
     }
     /**
-     * @return the size
+     * @return the resolution
      */
-    public Dimension getSize() {
-        return resolution.getDimension();
-        }
-
+    public Resolution getResolution() {
+        return this.resolution;
+    }
     /**
      * @param resolution the size to set
      */
