@@ -15,9 +15,11 @@ import candy.Launcher;
 import candy.scoreboard.Scoreboard;
 import candy.settings.Settings;
 
-public class CandyWriter {
+public final class CandyWriter {
     
     private static Gson gson;
+    
+    private CandyWriter() { }
     
     public static void writeSettings(final Settings set) {
         try (Writer writer = new FileWriter(Launcher.MAIN_FOLDER + Launcher.SEP + "Settings.json")) {
@@ -28,7 +30,7 @@ public class CandyWriter {
         }
     }
     
-    public static void writeScoreboard(List<Scoreboard> score) {
+    public static void writeScoreboard(final List<Scoreboard> score) {
         try (Writer writer = new FileWriter(Launcher.MAIN_FOLDER + Launcher.SEP + "Scoreboard.json")) {
             gson = new GsonBuilder().setPrettyPrinting().create();
             gson.toJson(score, writer);
