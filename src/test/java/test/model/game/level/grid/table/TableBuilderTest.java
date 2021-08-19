@@ -1,16 +1,27 @@
 package test.model.game.level.grid.table;
 
+import static org.junit.Assert.assertEquals;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
 import model.game.level.grid.table.TableBuilder;
 import model.game.level.grid.table.TableBuilderImpl;
 
 public class TableBuilderTest {
-    
-    TableBuilder tb = new TableBuilderImpl();
-    
-    @Before
-    
+    private static TableBuilder tb;
+
+    @BeforeAll
+    public static void initBuilder() {
+        tb = new TableBuilderImpl();
+    }
+
     @Test
-    
-    @After
+    public void testDimension() {
+        System.out.println("testDimension()");
+        assertEquals(1, 1);
+    }
+
+    // @After
 
 }
