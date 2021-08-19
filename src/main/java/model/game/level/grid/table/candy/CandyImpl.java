@@ -2,9 +2,13 @@ package model.game.level.grid.table.candy;
 
 import java.util.Optional;
 
+import candy.graphics.GraphicsComponent;
+import candy.graphics.GraphicsDraw;
+
 public class CandyImpl implements Candy {
     private Optional<CandyTypes> candyType;
     private Optional<CandyColors> candyColor;
+    private GraphicsComponent graphics;
 
     public CandyImpl(final CandyTypes cType, final CandyColors cColor) {
         this.candyColor = Optional.of(cColor);
@@ -21,6 +25,15 @@ public class CandyImpl implements Candy {
     }
     public final void setCandyColor(final Optional<CandyColors> candyColor) {
         this.candyColor = candyColor;
+    }
+    public final GraphicsComponent getGraphics() {
+        return graphics;
+    }
+    public final void setGraphics(final GraphicsComponent graphics) {
+        this.graphics = graphics;
+    }
+    public final void updateGraphic(final GraphicsDraw g) {
+        graphics.updateCandy(this, g);
     }
     @Override
     public final int hashCode() {

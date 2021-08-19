@@ -20,4 +20,9 @@ public interface Level {
      * @return the number of moves of the {@link Level}.
      */
     Optional<Integer> getMoves();
+    /**
+     * Gives the number of seconds for terminate the {@link Level}.
+     * @return the number of seconds for terminate the {@link Level}.
+     */
+    Optional<Integer> getTime();
 }
