@@ -61,7 +61,11 @@ public class GameOutcomeGUI extends JFrame {
             this.setDefaultCloseOperation(EXIT_ON_CLOSE);
             this.addWindowListener(new WindowAdapter() {
                 public void windowClosing(final WindowEvent e) {
+<<<<<<< HEAD
                     int n = JOptionPane.showConfirmDialog(frame, "Do you really want to quit?", 
+=======
+                    final int n = JOptionPane.showConfirmDialog(frame, "Do you really want to quit?", 
+>>>>>>> outcome
                             "Quitting...", JOptionPane.YES_NO_OPTION);
                     if (n == JOptionPane.YES_OPTION) {
                         System.exit(0);
