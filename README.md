@@ -12,4 +12,3 @@ Distributed under the GPL-3.0 License.
 * [Lorenzo Signoretti](https://github.com/Signo23)
 * [Giulia Montini](https://github.com/giuliamontini)
 * [Alessia Lombardi](https://github.com/AlessiaLom)
-* [Lucia Castellucci](https://github.com/LuciaCastellucci)
