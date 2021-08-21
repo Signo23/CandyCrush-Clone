@@ -1,4 +1,4 @@
-# OOP20-CandyCrush
+# CandyCrush-Clone
 CandyCrush is a Java clone of the homonym [CandyCrush](https://it.wikipedia.org/wiki/Candy_Crush_Saga)
 
 ## Built with
