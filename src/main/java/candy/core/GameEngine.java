@@ -5,9 +5,9 @@ import java.util.LinkedList;
 import candy.graphics.Scene;
 import candy.graphics.SwingScene;
 import candy.input.InputControllerImpl;
-import model.GameState;
-import model.LevelEvent;
-import model.LevelEventListener;
+import candy.model.GameState;
+import candy.model.LevelEvent;
+import candy.model.LevelEventListener;
 
 public class GameEngine implements LevelEventListener {
 

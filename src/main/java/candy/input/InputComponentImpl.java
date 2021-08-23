@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import model.game.level.grid.table.Table;
-import model.game.level.grid.table.candy.Candy;
+import candy.model.game.level.grid.table.Table;
+import candy.model.game.level.grid.table.candy.Candy;
 import other.Pair;
 
 

@@ -9,8 +9,8 @@ import javax.swing.JFrame;
 
 import candy.file.CandyReader;
 import candy.input.InputControllerImpl;
+import candy.model.GameState;
 import candy.settings.Resolution;
-import model.GameState;
 
 public final class SwingScene extends JFrame implements Scene {
 

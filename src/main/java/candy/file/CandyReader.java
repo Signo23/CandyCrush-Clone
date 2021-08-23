@@ -19,17 +19,17 @@ import com.google.gson.reflect.TypeToken;
 
 import candy.settings.Resolution;
 import candy.settings.Settings;
-import model.game.level.grid.candy.CandyColors;
-import model.game.level.grid.candy.CandyTypes;
 import candy.Launcher;
+import candy.model.game.level.grid.candy.CandyColors;
+import candy.model.game.level.grid.candy.CandyTypes;
 import candy.scoreboard.Scoreboard;
 
 public final class CandyReader {
-    
+
     private static Gson gson;
-    
+
     private CandyReader() { }
-    
+
     public static Settings readSettings() {
         try (Reader reader = Files.newBufferedReader(Paths.get(Launcher.MAIN_FOLDER + Launcher.SEP + "Settings.json"))) {
             gson = new GsonBuilder().setPrettyPrinting().create();
@@ -54,7 +54,7 @@ public final class CandyReader {
         }
         return new ArrayList<Scoreboard>();
     }
-    
+
     public static Image getCandyImage(final Resolution res, final CandyTypes type, final CandyColors color) {
         return loadImage(res.getActualString() + Launcher.SEP + type.name() + "_" + color.name());
     }

@@ -3,11 +3,11 @@ package candy.input;
 import java.util.Map;
 import java.util.Optional;
 
-import model.game.level.grid.table.candy.CandyTypes;
-import model.game.level.grid.table.Table;
-import model.game.level.grid.table.TableBuilder;
-import model.game.level.grid.table.TableBuilderImpl;
-import model.game.level.grid.table.candy.Candy;
+import candy.model.game.level.grid.table.Table;
+import candy.model.game.level.grid.table.TableBuilder;
+import candy.model.game.level.grid.table.TableBuilderImpl;
+import candy.model.game.level.grid.table.candy.Candy;
+import candy.model.game.level.grid.table.candy.CandyTypes;
 import other.Pair;
 
 public class Refill {

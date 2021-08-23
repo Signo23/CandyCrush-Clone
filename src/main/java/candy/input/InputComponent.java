@@ -1,7 +1,7 @@
 package candy.input;
 
 
-import model.game.level.grid.table.Table;
+import candy.model.game.level.grid.table.Table;
 
 public interface InputComponent {
 

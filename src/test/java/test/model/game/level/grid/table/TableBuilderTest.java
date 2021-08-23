@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import model.game.level.grid.table.TableBuilder;
-import model.game.level.grid.table.TableBuilderImpl;
+import candy.model.game.level.grid.table.TableBuilder;
+import candy.model.game.level.grid.table.TableBuilderImpl;
 
 public class TableBuilderTest {
     private static TableBuilder tb;

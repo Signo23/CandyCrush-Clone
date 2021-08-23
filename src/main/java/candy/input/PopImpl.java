@@ -3,9 +3,9 @@ package candy.input;
 import java.util.List;
 import java.util.Optional;
 
-import model.game.level.grid.table.candy.CandyTypes;
-import model.game.level.grid.table.candy.CandyColors;
-import model.game.level.grid.table.Table;
+import candy.model.game.level.grid.table.Table;
+import candy.model.game.level.grid.table.candy.CandyColors;
+import candy.model.game.level.grid.table.candy.CandyTypes;
 import other.Pair;
 
 public class PopImpl implements Pop {

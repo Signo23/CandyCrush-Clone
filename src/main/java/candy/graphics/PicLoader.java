@@ -7,8 +7,8 @@ import java.awt.Image;
 
 import candy.settings.Resolution;
 import candy.file.CandyReader;
-import model.game.level.grid.table.candy.CandyColors;
-import model.game.level.grid.table.candy.CandyTypes;
+import candy.model.game.level.grid.table.candy.CandyColors;
+import candy.model.game.level.grid.table.candy.CandyTypes;
 
 public class PicLoader {
 
