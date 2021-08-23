@@ -12,6 +12,8 @@ public class GameState {
 
 
     public GameState(/*final LevelEventListener l*/) {
+        this.score = 0;
+        this.level = null;
     }
 
     /**
@@ -28,7 +30,8 @@ public class GameState {
         return score;
     }
 
-    public void incScore() {
+    public final void incScore() {
+        this.score++;
     }
 
     public final boolean isGameOver() {
