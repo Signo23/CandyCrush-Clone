@@ -65,4 +65,9 @@ public class Candy {
         this.position = position;
     }
 
+    @Override
+    public final String toString() {
+        return "Candy [type=" + this.type + ", color=" + this.color + ", position=" + this.position + "]";
+    }
+
 }

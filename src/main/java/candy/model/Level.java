@@ -40,4 +40,9 @@ public class Level {
         return type;
     }
 
+    @Override
+    public final String toString() {
+        return "Level [grid=" + this.grid + ", scoreGoal=" + this.scoreGoal + ", type=" + this.type + "]";
+    }
+
 }

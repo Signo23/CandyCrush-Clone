@@ -65,4 +65,11 @@ public class Grid {
     public int getColumns() {
         return columns;
     }
+
+    @Override
+    public final String toString() {
+        return "Grid [candies=" + this.candies + ", row=" + this.row + ", columns=" + this.columns + ", colorSet="
+                + this.colorSet + "]";
+    }
+
 }
