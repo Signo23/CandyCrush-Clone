@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import candy.common.Pair;
+import candy.common.Position;
 import candy.model.game.level.grid.table.Table;
 import candy.model.game.level.grid.table.candy.CandyColors;
 import candy.model.game.level.grid.table.candy.CandyTypes;
@@ -16,8 +16,8 @@ public class SimpleCheck implements Check {
     private static final int PREC = -1;
     private static final int NO_INC = 0;
 
-    public final List<Pair> checkMatch(final Pair position, final Table grid) {
-        final List<Pair> result = new ArrayList<>();
+    public final List<Position> checkMatch(final Position position, final Table grid) {
+        final List<Position> result = new ArrayList<>();
         int incX = NO_INC;
         int incY = PREC;
         result.add(position);
@@ -34,12 +34,12 @@ public class SimpleCheck implements Check {
             controll(position, result, incX, incY, grid);
         }
         if (result.size() >= MIN_DIM) {
-            for (final Pair elem : result) {
+            for (final Position elem : result) {
                 if (grid.getGrid().get(elem).get().getCandyType().equals(Optional.of(CandyTypes.HORIZONTAL_STRIPED))) {
                      final double i = elem.getX();
                      final int ncolumns = grid.getColumns();
                      for (int j = 0; j < ncolumns; j++) {
-                         final Pair pos = new Pair(i, j);
+                         final Position pos = new Position(i, j);
                          result.add(pos);
                      }
                 }
@@ -50,8 +50,8 @@ public class SimpleCheck implements Check {
         return result;
     }
 
-    private void controll(final Pair pos, final List<Pair> result, final int incX, final int incY, final Table grid) {
-        final Pair next = new Pair(pos.getX() + incX, pos.getY() + incY);
+    private void controll(final Position pos, final List<Position> result, final int incX, final int incY, final Table grid) {
+        final Position next = new Position(pos.getX() + incX, pos.getY() + incY);
         final Optional<CandyColors> nextColor = grid.getGrid().get(next).get().getCandyColor();
         if (grid.getGrid().get(pos).get().getCandyColor().equals(nextColor)) {
             result.add(next);

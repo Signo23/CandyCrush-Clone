@@ -1,6 +1,6 @@
 package candy.input;
 
-import candy.common.Pair;
+import candy.common.Position;
 
 public class InputControllerImpl implements InputController {
 
@@ -8,7 +8,7 @@ public class InputControllerImpl implements InputController {
     private boolean isSwitchDown;
     private boolean isSwitchLeft;
     private boolean isSwitchRight;
-    private Pair position;
+    private Position position;
 
 
     public final boolean isSwitchUp() {
@@ -27,7 +27,7 @@ public class InputControllerImpl implements InputController {
         return isSwitchRight;
     }
 
-    public final void notifySwitchUp(final Pair position) {
+    public final void notifySwitchUp(final Position position) {
         isSwitchUp = true;
         isSwitchDown = false;
         isSwitchLeft = false;
@@ -35,7 +35,7 @@ public class InputControllerImpl implements InputController {
         this.position = position;
     }
 
-    public final void notifySwitchDown(final Pair position) {
+    public final void notifySwitchDown(final Position position) {
         isSwitchDown = true;
         isSwitchUp = false;
         isSwitchLeft = false;
@@ -43,7 +43,7 @@ public class InputControllerImpl implements InputController {
         this.position = position;
     }
 
-    public final void notifySwitchLeft(final Pair position) {
+    public final void notifySwitchLeft(final Position position) {
         isSwitchLeft = true;
         isSwitchUp = false;
         isSwitchDown = false;
@@ -51,7 +51,7 @@ public class InputControllerImpl implements InputController {
         this.position = position;
     }
 
-    public final void notifySwitchRight(final Pair position) {
+    public final void notifySwitchRight(final Position position) {
         isSwitchRight = true;
         isSwitchUp = false;
         isSwitchDown = false;
@@ -59,7 +59,7 @@ public class InputControllerImpl implements InputController {
         this.position = position;
     }
 
-    public final Pair getPosition() {
+    public final Position getPosition() {
         return position;
     }
 

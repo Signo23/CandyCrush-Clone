@@ -3,17 +3,15 @@
  */
 package candy.model;
 
-import candy.model.game.level.Level;
-
 public class GameState {
 
-    private Level level;
+    private final Level level;
     private int score;
 
 
     public GameState(/*final LevelEventListener l*/) {
         this.score = 0;
-        this.level = null;
+        this.level = new Level();
     }
 
     /**

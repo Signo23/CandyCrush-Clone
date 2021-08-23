@@ -1,6 +1,6 @@
 package candy.input;
 
-import candy.common.Pair;
+import candy.common.Position;
 
 public interface InputController {
 
@@ -8,6 +8,6 @@ public interface InputController {
     boolean isSwitchDown();
     boolean isSwitchLeft();
     boolean isSwitchRight();
-    Pair getPosition();
+    Position getPosition();
 
 }

@@ -1,11 +1,11 @@
 package candy.common;
 
-public class Pair {
+public class Position {
 
     private double x;
     private double y;
 
-    public Pair(final double x, final double y) {
+    public Position(final double x, final double y) {
         this.x = x;
         this.y = y;
     }
@@ -39,7 +39,7 @@ public class Pair {
     }
 
     @Override
-    public String toString() {
+    public final String toString() {
         return "Pair [x=" + x + ", y=" + y + "]";
     }
 

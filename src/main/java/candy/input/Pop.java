@@ -2,7 +2,7 @@ package candy.input;
 
 import java.util.List;
 
-import candy.common.Pair;
+import candy.common.Position;
 import candy.model.game.level.grid.table.Table;
 
 public interface Pop {
@@ -13,11 +13,11 @@ public interface Pop {
      * @param switchedPosition
      * @param grid
      */
-    void pop(List<Pair> positions, Pair switchedPosition, Table grid);
+    void pop(List<Position> positions, Position switchedPosition, Table grid);
     /**
      * Remove a list of candies, setting value at Optional.empty().
      * @param positions
      * @param grid
      */
-    void removeCandy(List<Pair> positions, Table grid);
+    void removeCandy(List<Position> positions, Table grid);
 }
