@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+import candy.graphics.CandyComponent;
+
 public final class RandomCandy {
 
     private RandomCandy() { }
@@ -19,7 +21,7 @@ public final class RandomCandy {
             colors.add(color);
         }
 
-        return new Candy(Candy.Type.NORMAL, colors.get(rand.nextInt(colors.size())));
+        return new Candy(Candy.Type.NORMAL, colors.get(rand.nextInt(colors.size())), new CandyComponent());
     }
 
 }
