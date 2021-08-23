@@ -3,6 +3,8 @@
  */
 package candy.model;
 
+import candy.common.Position;
+
 public class Candy {
 
     /**
@@ -19,12 +21,21 @@ public class Candy {
     /**
      * Candy's type.
      */
-    private Type type;
+    private final Type type;
     /**
      * Candy's color.
      */
-    private Color color;
+    private final Color color;
+    /**
+     * Candy's position {@link Position}.
+     */
+    private Position position;
 
+    public Candy(final Type type, final Color color, final Position position) {
+        this.type = type;
+        this.color = color;
+        this.position = position;
+    }
 
     /**
      * @return the type
@@ -32,23 +43,26 @@ public class Candy {
     public Type getType() {
         return type;
     }
-    /**
-     * @param type the type to set
-     */
-    public void setType(final Type type) {
-        this.type = type;
-    }
+
     /**
      * @return the color
      */
     public Color getColor() {
         return color;
     }
+
     /**
-     * @param color the color to set
+     * @return the position
      */
-    public void setColor(final Color color) {
-        this.color = color;
+    public Position getPosition() {
+        return position;
+    }
+
+    /**
+     * @param position the position to set
+     */
+    public void setPosition(final Position position) {
+        this.position = position;
     }
 
 }
