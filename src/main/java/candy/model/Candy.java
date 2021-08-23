@@ -8,7 +8,7 @@ public class Candy {
     /**
      * Type of {@link Candy}.
      */
-    public enum Type { BOMB, STRIPED, NORMAL, EMPTY }
+    public enum Type { BOMB, STRIPED, NORMAL, EMPTY, NULL }
 
     /**
      * Color of {@link Candy}.
@@ -19,11 +19,11 @@ public class Candy {
     /**
      * Candy's type.
      */
-    private final Type type;
+    private Type type;
     /**
      * Candy's color.
      */
-    private final Color color;
+    private Color color;
 
 
     public Candy(final Type type, final Color color) {
@@ -39,10 +39,22 @@ public class Candy {
     }
 
     /**
+     * 
+     * @param type
+     */
+    public final void setType(final Type type) {
+        this.type = type;
+    }
+
+    /**
      * @return the color
      */
     public Color getColor() {
         return color;
+    }
+
+    public final void setColor(final Color color) {
+        this.color = color;
     }
 
     @Override

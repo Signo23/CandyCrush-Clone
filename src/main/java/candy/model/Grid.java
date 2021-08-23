@@ -15,12 +15,12 @@ public class Grid {
 
     private Map<Position, Candy> candies;
     private final int row;
-    private final int columns;
+    private final int column;
     private Set<Color> colorSet;
 
-    public Grid(final int row, final int columns) {
+    public Grid(final int row, final int column) {
         this.row = row;
-        this.columns = columns;
+        this.column = column;
         this.candies = new HashMap<>();
         this.colorSet = new HashSet<>();
     }
@@ -63,13 +63,13 @@ public class Grid {
     /**
      * @return the columns
      */
-    public int getColumns() {
-        return columns;
+    public int getColumn() {
+        return column;
     }
 
     @Override
     public final String toString() {
-        return "Grid [candies=" + this.candies + ", row=" + this.row + ", columns=" + this.columns + ", colorSet="
+        return "Grid [candies=" + this.candies + ", row=" + this.row + ", columns=" + this.column + ", colorSet="
                 + this.colorSet + "]";
     }
 

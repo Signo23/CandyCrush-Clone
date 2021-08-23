@@ -1,7 +1,7 @@
 package candy.input;
 
 
-import candy.model.game.level.grid.table.Table;
+import candy.model.Grid;
 
 public interface InputComponent {
 
@@ -10,6 +10,6 @@ public interface InputComponent {
      * @param ctrl
      * @param grid
      */
-    void update(InputController ctrl, Table grid);
+    void update(InputController ctrl, Grid grid);
 
 }

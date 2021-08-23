@@ -1,18 +1,16 @@
 package candy.input;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 import candy.common.Position;
-import candy.model.game.level.grid.table.Table;
-import candy.model.game.level.grid.table.candy.Candy;
+import candy.model.Candy;
+import candy.model.Grid;
 
 
 
 public class InputComponentImpl implements InputComponent {
 
-    public final void update(final InputController ctrl, final Table grid) {
+    public final void update(final InputController ctrl, final Grid grid) {
             final Position position = ctrl.getPosition();
             if (ctrl.isSwitchUp()) {
                 final Position actualPosition = new Position(position.getX() - 1, position.getY());
@@ -52,7 +50,7 @@ public class InputComponentImpl implements InputComponent {
      * @param grid
      * @return
      */
-    private boolean isSwitchPossible(final Position newPos, final Position oldPos, final Table grid) {
+    private boolean isSwitchPossible(final Position newPos, final Position oldPos, final Grid grid) {
         final CompleteCheck check = new CompleteCheck();
         final Pop pop = new PopImpl();
         final Refill refill = new Refill();
@@ -71,11 +69,10 @@ public class InputComponentImpl implements InputComponent {
      * @param oldPos
      * @param table
      */
-    private void switchCandies(final Position newPos, final Position oldPos, final Table table) {
-        final Map<Position, Optional<Candy>> grid = table.getGrid();
-        final Optional<Candy> temp = grid.get(oldPos);
-        grid.put(oldPos, grid.get(newPos));
-        grid.put(newPos, temp);
+    private void switchCandies(final Position newPos, final Position oldPos, final Grid grid) {
+        final Candy temp = grid.getCandies().get(oldPos);
+        grid.getCandies().put(oldPos, grid.getCandies().get(newPos));
+        grid.getCandies().put(newPos, temp);
     }
 
 }

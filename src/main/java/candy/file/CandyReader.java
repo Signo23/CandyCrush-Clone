@@ -20,8 +20,7 @@ import com.google.gson.reflect.TypeToken;
 import candy.settings.Resolution;
 import candy.settings.Settings;
 import candy.Launcher;
-import candy.model.game.level.grid.candy.CandyColors;
-import candy.model.game.level.grid.candy.CandyTypes;
+import candy.model.Candy;
 import candy.scoreboard.Scoreboard;
 
 public final class CandyReader {
@@ -55,7 +54,7 @@ public final class CandyReader {
         return new ArrayList<Scoreboard>();
     }
 
-    public static Image getCandyImage(final Resolution res, final CandyTypes type, final CandyColors color) {
+    public static Image getCandyImage(final Resolution res, final Candy.Type type, final Candy.Color color) {
         return loadImage(res.getActualString() + Launcher.SEP + type.name() + "_" + color.name());
     }
 

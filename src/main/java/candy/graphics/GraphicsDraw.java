@@ -1,6 +1,6 @@
 package candy.graphics;
 
-import candy.model.game.level.grid.table.candy.Candy;
+import candy.model.Candy;
 
 public interface GraphicsDraw {
 
