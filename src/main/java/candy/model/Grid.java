@@ -3,16 +3,17 @@
  */
 package candy.model;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
+import candy.common.Position;
 import candy.model.Candy.Color;
 
 public class Grid {
 
-    private List<Candy> candies;
+    private Map<Position, Candy> candies;
     private final int row;
     private final int columns;
     private Set<Color> colorSet;
@@ -20,21 +21,21 @@ public class Grid {
     public Grid(final int row, final int columns) {
         this.row = row;
         this.columns = columns;
-        this.candies = new ArrayList<>();
+        this.candies = new HashMap<>();
         this.colorSet = new HashSet<>();
     }
 
     /**
      * @return the candies
      */
-    public List<Candy> getCandies() {
-        return candies;
+    public Map<Position, Candy> getCandies() {
+        return this.candies;
     }
 
     /**
      * @param candies the candies to set
      */
-    public void setCandies(final List<Candy> candies) {
+    public void setCandies(final Map<Position, Candy> candies) {
         this.candies = candies;
     }
 
