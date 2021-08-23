@@ -11,7 +11,7 @@ public class GameState {
 
     public GameState(/*final LevelEventListener l*/) {
         this.score = 0;
-        this.level = new Level();
+        this.level = LevelFactory.levelOne();
     }
 
     /**
@@ -33,6 +33,6 @@ public class GameState {
     }
 
     public final boolean isGameOver() {
-        return false;
+        return this.score == this.level.getScoreGoal();
     }
 }
