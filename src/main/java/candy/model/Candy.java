@@ -3,14 +3,12 @@
  */
 package candy.model;
 
-import candy.common.Position;
-
 public class Candy {
 
     /**
      * Type of {@link Candy}.
      */
-    public enum Type { BOMB, SRIPED, NORMAL, EMPTY }
+    public enum Type { BOMB, STRIPED, NORMAL, EMPTY }
 
     /**
      * Color of {@link Candy}.
@@ -26,15 +24,11 @@ public class Candy {
      * Candy's color.
      */
     private final Color color;
-    /**
-     * Candy's position {@link Position}.
-     */
-    private Position position;
 
-    public Candy(final Type type, final Color color, final Position position) {
+
+    public Candy(final Type type, final Color color) {
         this.type = type;
         this.color = color;
-        this.position = position;
     }
 
     /**
@@ -51,23 +45,9 @@ public class Candy {
         return color;
     }
 
-    /**
-     * @return the position
-     */
-    public Position getPosition() {
-        return position;
-    }
-
-    /**
-     * @param position the position to set
-     */
-    public void setPosition(final Position position) {
-        this.position = position;
-    }
-
     @Override
     public final String toString() {
-        return "Candy [type=" + this.type + ", color=" + this.color + ", position=" + this.position + "]";
+        return "Candy [type=" + this.type + ", color=" + this.color + "]";
     }
 
 }
