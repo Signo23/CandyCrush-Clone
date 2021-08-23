@@ -2,8 +2,8 @@ package candy.input;
 
 import java.util.List;
 
+import candy.common.Pair;
 import candy.model.game.level.grid.table.Table;
-import other.Pair;
 
 public interface Check {
 

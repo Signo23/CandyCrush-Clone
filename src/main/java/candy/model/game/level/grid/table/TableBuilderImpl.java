@@ -10,17 +10,12 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.Set;
 
+import candy.common.Pair;
 import candy.model.game.level.grid.table.candy.Candy;
 import candy.model.game.level.grid.table.candy.CandyColors;
 import candy.model.game.level.grid.table.candy.CandyFactory;
 import candy.model.game.level.grid.table.candy.CandyFactoryImpl;
 import candy.model.game.level.grid.table.candy.CandyTypes;
-/*import candy.input.Check;
-import candy.input.SimpleCheck;
-import candy.input.Pop;
-import candy.input.PopImpl;
-import candy.input.Refill;*/
-import other.Pair;
 
 public class TableBuilderImpl implements TableBuilder {
     private final CandyFactory cFactory = new CandyFactoryImpl();

@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import candy.common.Pair;
 import candy.model.game.level.grid.table.candy.Candy;
-import other.Pair;
 
 public class GridImpl implements Grid {
     private final Map<Pair, Candy> grid = new HashMap<>();

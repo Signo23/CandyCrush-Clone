@@ -3,13 +3,13 @@ package candy.model.game.level.grid;
 import java.util.List;
 import java.util.Optional;
 
+import candy.common.Pair;
 import candy.input.Check;
 import candy.input.Pop;
 import candy.input.PopImpl;
 import candy.input.Refill;
 import candy.input.SimpleCheck;
 import candy.model.game.level.grid.table.Table;
-import other.Pair;
 
 public class GridBuilderImpl implements GridBuilder {
 

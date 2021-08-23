@@ -3,11 +3,11 @@ package candy.model.game.level;
 import java.util.Optional;
 import java.util.Set;
 
+import candy.common.Pair;
 import candy.model.game.level.grid.table.Table;
 import candy.model.game.level.grid.table.TableBuilder;
 import candy.model.game.level.grid.table.TableBuilderImpl;
 import candy.model.game.level.grid.table.candy.CandyColors;
-import other.Pair;
 
 public enum Maps {
     /**

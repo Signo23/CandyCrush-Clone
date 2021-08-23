@@ -7,9 +7,9 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
+import candy.common.Pair;
 import candy.model.game.level.grid.table.candy.Candy;
 import candy.model.game.level.grid.table.candy.CandyColors;
-import other.Pair;
 
 public class TableImpl implements Table {
     private Map<Pair, Optional<Candy>> grid;

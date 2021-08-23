@@ -1,4 +1,4 @@
-package other;
+package candy.common;
 
 public class Pair {
 

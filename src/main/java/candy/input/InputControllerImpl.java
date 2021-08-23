@@ -1,6 +1,6 @@
 package candy.input;
 
-import other.Pair;
+import candy.common.Pair;
 
 public class InputControllerImpl implements InputController {
 
