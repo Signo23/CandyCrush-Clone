@@ -5,40 +5,41 @@ import java.util.List;
 import candy.common.Position;
 import candy.model.Candy;
 import candy.model.Grid;
+import candy.model.Level;
 
 
 
 public class InputComponentImpl implements InputComponent {
 
-    public final void update(final InputController ctrl, final Grid grid) {
+    public final void update(final InputController ctrl, final Level level) {
             final Position position = ctrl.getPosition();
             if (ctrl.isSwitchUp()) {
                 final Position actualPosition = new Position(position.getX() - 1, position.getY());
-                switchCandies(actualPosition, position, grid);
-                if (!isSwitchPossible(actualPosition, position, grid)
-                    && !isSwitchPossible(position, actualPosition, grid)) {
-                    switchCandies(actualPosition, position, grid);
+                switchCandies(actualPosition, position, level.getGrid());
+                if (!isSwitchPossible(actualPosition, position, level.getGrid())
+                    && !isSwitchPossible(position, actualPosition, level.getGrid())) {
+                    switchCandies(actualPosition, position, level.getGrid());
                 }
             } else if (ctrl.isSwitchDown()) {
                 final Position actualPosition = new Position(position.getX() + 1, position.getY());
-                switchCandies(actualPosition, position, grid);
-                if (!isSwitchPossible(actualPosition, position, grid)
-                    && !isSwitchPossible(position, actualPosition, grid)) {
-                    switchCandies(actualPosition, position, grid);
+                switchCandies(actualPosition, position, level.getGrid());
+                if (!isSwitchPossible(actualPosition, position, level.getGrid())
+                    && !isSwitchPossible(position, actualPosition, level.getGrid())) {
+                    switchCandies(actualPosition, position, level.getGrid());
                 }
             } else if (ctrl.isSwitchLeft()) {
                 final Position actualPosition = new Position(position.getX(), position.getY() - 1);
-                switchCandies(actualPosition, position, grid);
-                if (!isSwitchPossible(actualPosition, position, grid)
-                    && !isSwitchPossible(position, actualPosition, grid)) {
-                    switchCandies(actualPosition, position, grid);
+                switchCandies(actualPosition, position, level.getGrid());
+                if (!isSwitchPossible(actualPosition, position, level.getGrid())
+                    && !isSwitchPossible(position, actualPosition, level.getGrid())) {
+                    switchCandies(actualPosition, position, level.getGrid());
                 }
             } else if (ctrl.isSwitchRight()) {
                 final Position actualPosition = new Position(position.getX(), position.getY() + 1);
-                switchCandies(actualPosition, position, grid);
-                if (!isSwitchPossible(actualPosition, position, grid)
-                    && !isSwitchPossible(position, actualPosition, grid)) {
-                    switchCandies(actualPosition, position, grid);
+                switchCandies(actualPosition, position, level.getGrid());
+                if (!isSwitchPossible(actualPosition, position, level.getGrid())
+                    && !isSwitchPossible(position, actualPosition, level.getGrid())) {
+                    switchCandies(actualPosition, position, level.getGrid());
                 }
             }
     }

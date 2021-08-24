@@ -1,15 +1,15 @@
 package candy.input;
 
 
-import candy.model.Grid;
+import candy.model.Level;
 
 public interface InputComponent {
 
     /**
      * Update the grid after check if there is a combination of candies.
      * @param ctrl
-     * @param grid
+     * @param level
      */
-    void update(InputController ctrl, Grid grid);
+    void update(InputController ctrl, Level level);
 
 }

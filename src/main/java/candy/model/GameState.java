@@ -9,9 +9,9 @@ public class GameState {
     private int score;
 
 
-    public GameState(/*final LevelEventListener l*/) {
+    public GameState(final LevelEventListener l) {
         this.score = 0;
-        this.level = LevelFactory.levelOne();
+        this.level = LevelFactory.levelOne(l);
     }
 
     /**

@@ -1,6 +1,7 @@
 package candy.core;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import candy.graphics.Scene;
 import candy.graphics.SwingScene;
@@ -15,14 +16,14 @@ public class GameEngine implements LevelEventListener {
     private Scene view;
     private GameState gameState;
     private InputControllerImpl controller;
-    private LinkedList<LevelEvent> eventQueue;
+    private final List<LevelEvent> eventQueue;
 
     public GameEngine() {
         this.eventQueue = new LinkedList<>();
     }
 
     public final void initGame() {
-        this.gameState = new GameState();
+        this.gameState = new GameState(this);
         this.controller = new InputControllerImpl();
         this.view = new SwingScene(this.gameState, this.controller);
     }
@@ -50,13 +51,14 @@ public class GameEngine implements LevelEventListener {
     }
 
     private void processInput() {
-//        this.gameState.getLevel().updateInput(this.controller);
+        this.gameState.getLevel().updateInput(this.controller);
     }
 
     private void updateGame() {
         this.eventQueue.stream().forEach(ev -> {
 //      TODO
         });
+        this.eventQueue.clear();
     }
 
     private void render() {

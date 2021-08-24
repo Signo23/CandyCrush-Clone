@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 import candy.common.Position;
+import candy.input.InputComponentImpl;
 
 public final class LevelFactory {
 
@@ -14,8 +15,8 @@ public final class LevelFactory {
 
     private LevelFactory() { }
 
-    public static Level levelOne() {
-        return new Level(randomGrid(LEVEL_ONE_ROWS, LEVEL_ONE_COLUMNS), 100, Level.Type.MOVES);
+    public static Level levelOne(final LevelEventListener listener) {
+        return new Level(randomGrid(LEVEL_ONE_ROWS, LEVEL_ONE_COLUMNS), 100, Level.Type.MOVES, new InputComponentImpl(), listener);
     }
 
     private static Grid randomGrid(final int row, final int column) {
