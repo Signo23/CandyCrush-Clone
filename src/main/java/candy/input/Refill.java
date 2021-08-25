@@ -28,14 +28,14 @@ public class Refill {
                             grid.getCandies().put(new Position(k, j), grid.getCandies().get(substituteCandy));
                         }
                     }
-                    grid.getCandies().put(new Position(k, j), RandomCandy.nextRandomCandy(grid.getColorSet()));
+                    grid.getCandies().put(new Position(k, j), RandomCandy.nextRandomCandy(grid.getColorList()));
                 }
             }
         }
         for (int j = 0; j < nColumns; j++) {
             final Position pos = new Position(0, j);
             if (grid.getCandies().get(pos).getType().equals(Candy.Type.NULL)) {
-                grid.getCandies().put(new Position(0, j), RandomCandy.nextRandomCandy(grid.getColorSet()));
+                grid.getCandies().put(new Position(0, j), RandomCandy.nextRandomCandy(grid.getColorList()));
             }
         }
     }

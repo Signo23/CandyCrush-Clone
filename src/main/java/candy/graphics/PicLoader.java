@@ -4,130 +4,56 @@
 package candy.graphics;
 
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import candy.settings.Resolution;
 import candy.file.CandyReader;
 import candy.model.Candy;
+import candy.common.CandyPair;
 
 public class PicLoader {
 
-    private Image blue, yellow, orange, red, purple, green, bomb, strBlue, strYellow, strOrange, strRed, strPurple, strGreen;
     private Image backgroung;
+    private final Map<CandyPair, Image> images;
     private final Resolution resolution;
 
     public PicLoader(final Resolution resolution) {
         this.resolution = resolution;
+        this.images = new HashMap<>();
     }
 
     public final void loadImage() {
-        this.blue = CandyReader.getCandyImage(resolution, Candy.Type.NORMAL, Candy.Color.BLUE);
-        this.green = CandyReader.getCandyImage(resolution, Candy.Type.NORMAL, Candy.Color.GREEN);
-        this.orange = CandyReader.getCandyImage(resolution, Candy.Type.NORMAL, Candy.Color.ORANGE);
-        this.purple = CandyReader.getCandyImage(resolution, Candy.Type.NORMAL, Candy.Color.PURPLE);
-        this.red = CandyReader.getCandyImage(resolution, Candy.Type.NORMAL, Candy.Color.RED);
-        this.yellow = CandyReader.getCandyImage(resolution, Candy.Type.NORMAL, Candy.Color.YELLOW);
+        final List<CandyPair> candyType = new ArrayList<>();
+        candyTypeList(candyType);
+        System.out.println("Candy Type's list " + candyType);
+        for (final CandyPair cp : candyType) {
+            this.images.put(cp, CandyReader.getCandyImage(resolution, cp));
+        }
+        System.out.println("Pic loader's icons: " + this.images);
+    }
 
-        this.bomb = CandyReader.getCandyImage(resolution, Candy.Type.BOMB, Candy.Color.NULL);
-
-        this.strBlue = CandyReader.getCandyImage(resolution, Candy.Type.STRIPED, Candy.Color.BLUE);
-        this.strGreen = CandyReader.getCandyImage(resolution, Candy.Type.STRIPED, Candy.Color.GREEN);
-        this.strOrange = CandyReader.getCandyImage(resolution, Candy.Type.STRIPED, Candy.Color.ORANGE);
-        this.strPurple = CandyReader.getCandyImage(resolution, Candy.Type.STRIPED, Candy.Color.PURPLE);
-        this.strRed = CandyReader.getCandyImage(resolution, Candy.Type.STRIPED, Candy.Color.RED);
-        this.strYellow = CandyReader.getCandyImage(resolution, Candy.Type.STRIPED, Candy.Color.YELLOW);
+    /**
+     * @param candyType
+     */
+    private void candyTypeList(final List<CandyPair> candyType) {
+        candyType.add(new CandyPair(Candy.Type.NORMAL, Candy.Color.BLUE));
+        candyType.add(new CandyPair(Candy.Type.NORMAL, Candy.Color.GREEN));
+        candyType.add(new CandyPair(Candy.Type.NORMAL, Candy.Color.ORANGE));
+        candyType.add(new CandyPair(Candy.Type.NORMAL, Candy.Color.PURPLE));
+        candyType.add(new CandyPair(Candy.Type.NORMAL, Candy.Color.RED));
+        candyType.add(new CandyPair(Candy.Type.NORMAL, Candy.Color.YELLOW));
+        candyType.add(new CandyPair(Candy.Type.BOMB, Candy.Color.NULL));
+        candyType.add(new CandyPair(Candy.Type.STRIPED, Candy.Color.BLUE));
+        candyType.add(new CandyPair(Candy.Type.STRIPED, Candy.Color.GREEN));
+        candyType.add(new CandyPair(Candy.Type.STRIPED, Candy.Color.ORANGE));
+        candyType.add(new CandyPair(Candy.Type.STRIPED, Candy.Color.PURPLE));
+        candyType.add(new CandyPair(Candy.Type.STRIPED, Candy.Color.RED));
+        candyType.add(new CandyPair(Candy.Type.STRIPED, Candy.Color.YELLOW));
 
         this.backgroung = CandyReader.getBackground(resolution);
-    }
-
-    /**
-     * @return the blue
-     */
-    public Image getBlue() {
-        return blue;
-    }
-
-    /**
-     * @return the yellow
-     */
-    public Image getYellow() {
-        return yellow;
-    }
-
-    /**
-     * @return the orange
-     */
-    public Image getOrange() {
-        return orange;
-    }
-
-    /**
-     * @return the red
-     */
-    public Image getRed() {
-        return red;
-    }
-
-    /**
-     * @return the purple
-     */
-    public Image getPurple() {
-        return purple;
-    }
-
-    /**
-     * @return the green
-     */
-    public Image getGreen() {
-        return green;
-    }
-
-    /**
-     * @return the bomb
-     */
-    public Image getBomb() {
-        return bomb;
-    }
-
-    /**
-     * @return the strBlue
-     */
-    public Image getStrBlue() {
-        return strBlue;
-    }
-
-    /**
-     * @return the strYellow
-     */
-    public Image getStrYellow() {
-        return strYellow;
-    }
-
-    /**
-     * @return the strOrange
-     */
-    public Image getStrOrange() {
-        return strOrange;
-    }
-
-    /**
-     * @return the strRed
-     */
-    public Image getStrRed() {
-        return strRed;
-    }
-
-    /**
-     * @return the strPurple
-     */
-    public Image getStrPurple() {
-        return strPurple;
-    }
-
-    /**
-     * @return the strGreen
-     */
-    public Image getStrGreen() {
-        return strGreen;
     }
 
     /**
@@ -135,6 +61,10 @@ public class PicLoader {
      */
     public Image getBackgroung() {
         return backgroung;
+    }
+
+    public final Image getCandyImage(final CandyPair cp) {
+        return this.images.get(cp);
     }
 
 }

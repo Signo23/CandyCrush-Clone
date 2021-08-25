@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.imageio.ImageIO;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -20,8 +19,8 @@ import com.google.gson.reflect.TypeToken;
 import candy.settings.Resolution;
 import candy.settings.Settings;
 import candy.Launcher;
-import candy.model.Candy;
 import candy.scoreboard.Scoreboard;
+import candy.common.CandyPair;
 
 public final class CandyReader {
 
@@ -54,16 +53,18 @@ public final class CandyReader {
         return new ArrayList<Scoreboard>();
     }
 
-    public static Image getCandyImage(final Resolution res, final Candy.Type type, final Candy.Color color) {
-        return loadImage(res.getActualString() + Launcher.SEP + type.name() + "_" + color.name());
+    public static Image getCandyImage(final Resolution res, final CandyPair candy) {
+        System.out.println("Loaded icon in" + res.getActualString() + Launcher.SEP + candy.getType().name() + "_" + candy.getColor().name() + ".png");
+        return loadImage(res.getActualString() + Launcher.SEP + candy.getType().name() + "_" + candy.getColor().name() + ".png");
     }
 
     public static Image getBackground(final Resolution res) {
-        return loadImage(res.getActualString() + Launcher.SEP + "background");
+        return loadImage(res.getActualString() + Launcher.SEP + "background.png");
     }
 
     private static Image loadImage(final String path) {
         try {
+            System.out.println("Loaded image in" + path);
             return ImageIO.read(ClassLoader.getSystemResource(path));
         } catch (IOException e) {
             e.printStackTrace();

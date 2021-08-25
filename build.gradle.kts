@@ -45,7 +45,7 @@ tasks.withType<Test> {
 
 application {
     // Define the main class for the application
-    mainClass.set("candy.launcher")
+    mainClass.set("candy.Launcher")
 }
 
 java {

@@ -3,10 +3,10 @@
  */
 package candy.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import candy.common.Position;
 import candy.model.Candy.Color;
@@ -16,13 +16,13 @@ public class Grid {
     private Map<Position, Candy> candies;
     private final int row;
     private final int column;
-    private Set<Color> colorSet;
+    private List<Color> colorList;
 
     public Grid(final int row, final int column) {
         this.row = row;
         this.column = column;
         this.candies = new HashMap<>();
-        this.colorSet = new HashSet<>();
+        this.colorList = new ArrayList<>();
     }
 
     /**
@@ -40,17 +40,17 @@ public class Grid {
     }
 
     /**
-     * @return the colorSet
+     * @return the colorList
      */
-    public Set<Color> getColorSet() {
-        return colorSet;
+    public List<Color> getColorList() {
+        return colorList;
     }
 
     /**
-     * @param colorSet the colorSet to set
+     * @param colorList the colorList to set
      */
-    public void setColorSet(final Set<Color> colorSet) {
-        this.colorSet = colorSet;
+    public void setColorList(final List<Color> colorList) {
+        this.colorList = colorList;
     }
 
     /**
@@ -69,8 +69,8 @@ public class Grid {
 
     @Override
     public final String toString() {
-        return "Grid [candies=" + this.candies + ", row=" + this.row + ", columns=" + this.column + ", colorSet="
-                + this.colorSet + "]";
+        return "Grid [candies=" + this.candies + ", row=" + this.row + ", columns=" + this.column + ", colorList="
+                + this.colorList + "]";
     }
 
 }
