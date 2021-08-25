@@ -1,5 +1,7 @@
 package candy.common;
 
+import java.util.Objects;
+
 public class Position {
 
     private double x;
@@ -36,6 +38,25 @@ public class Position {
      */
     public void setY(final double y) {
         this.y = y;
+    }
+
+
+    @Override
+    public final int hashCode() {
+        return Objects.hash(x, y);
+    }
+
+    @Override
+    public final boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Position)) {
+            return false;
+        }
+        final Position other = (Position) obj;
+        return Double.doubleToLongBits(x) == Double.doubleToLongBits(other.x)
+                && Double.doubleToLongBits(y) == Double.doubleToLongBits(other.y);
     }
 
     @Override

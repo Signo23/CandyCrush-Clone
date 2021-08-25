@@ -1,5 +1,7 @@
 package candy.common;
 
+import java.util.Objects;
+
 import candy.model.Candy;
 
 public class CandyPair {
@@ -38,6 +40,23 @@ public class CandyPair {
      */
     public void setColor(final Candy.Color color) {
         this.color = color;
+    }
+
+    @Override
+    public final int hashCode() {
+        return Objects.hash(color, type);
+    }
+
+    @Override
+    public final boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof CandyPair)) {
+            return false;
+        }
+        final CandyPair other = (CandyPair) obj;
+        return color == other.color && type == other.type;
     }
 
     @Override
