@@ -2,6 +2,8 @@ package candy;
 
 import java.io.File;
 
+import candy.core.GameEngine;
+
 public final class Launcher {
 
     /**
@@ -26,6 +28,9 @@ public final class Launcher {
         if (new File(MAIN_FOLDER).mkdirs()) {
             System.out.println("Directory created succesfully");
         }
+        final GameEngine game = new GameEngine();
+        game.initGame();
+        game.mainLoop();
     }
 
 }
