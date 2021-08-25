@@ -43,6 +43,7 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
+
 application {
     // Define the main class for the application
     mainClass.set("candy.Launcher")

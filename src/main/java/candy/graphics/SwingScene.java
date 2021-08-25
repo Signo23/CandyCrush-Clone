@@ -4,9 +4,12 @@
 package candy.graphics;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Label;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -68,6 +71,9 @@ public final class SwingScene extends JFrame implements Scene {
 
         candyPanel.setPreferredSize(new Dimension(450, 450));
         mainPanel.add(candyPanel, BorderLayout.EAST);
+        final Label label = new Label("Obiettivo: " + this.gameState.getLevel().getScoreGoal());
+        label.setBackground(Color.LIGHT_GRAY);
+        mainPanel.add(label, BorderLayout.NORTH);
         this.add(mainPanel);
         this.setSize(res.getDimension());
         this.setTitle("Candy Crush");
