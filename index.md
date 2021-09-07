@@ -1,7 +1,7 @@
 ## Welcome our page
 
-# CandyCrush-Clone
-CandyCrush is a Java clone of the homonym [CandyCrush](https://it.wikipedia.org/wiki/Candy_Crush_Saga)
+# Welcom to Clone's page
+CandyCrush-Clone is a Java clone of the homonym [CandyCrush](https://it.wikipedia.org/wiki/Candy_Crush_Saga)
 
 ## Built with
 [Java](https://www.oracle.com/it/java/)
