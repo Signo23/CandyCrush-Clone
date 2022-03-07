@@ -5,7 +5,7 @@ CandyCrush is a Java clone of the homonym [CandyCrush](https://it.wikipedia.org/
 [Java](https://www.oracle.com/it/java/)
 [Gson](https://github.com/google/gson)
 
-## License
+## Licensel
 Distributed under the GPL-3.0 License.
 
 ## Contact
